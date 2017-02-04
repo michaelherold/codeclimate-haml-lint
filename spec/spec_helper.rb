@@ -5,6 +5,7 @@ if ENV["COVERAGE"] || ENV["CI"]
   end
 end
 
+require "haml_lint"
 require "pry"
 
 Dir["spec/support/**/*.rb"].each { |file| require file.sub("spec/", "") }
