@@ -1,0 +1,10 @@
+/.bundle/
+/.ruby-version
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/tmp/
