@@ -33,7 +33,7 @@ module CC
       attr_reader :root
 
       def files_to_inspect
-        @files_to_inspect || FileList.new(
+        @files_to_inspect ||= FileList.new(
           root: root,
           include_paths: engine_config["include_paths"]
         )
