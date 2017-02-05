@@ -1,5 +1,7 @@
 FROM ruby:2.3-alpine
 
+MAINTAINER Michael J. Herold
+
 WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/

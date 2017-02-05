@@ -1,0 +1,11 @@
+{
+  "name": "haml_lint",
+  "description": "Lints your Haml files",
+  "maintainer": {
+    "name": "Michael J. Herold",
+    "email": "michael@michaeljherold.com"
+  },
+  "languages": ["Haml"],
+  "version": "v0.1.0",
+  "spec_version": "0.2.0"
+}
