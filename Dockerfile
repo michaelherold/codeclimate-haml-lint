@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 
-RUN bundle install -j 4 && \
+RUN bundle install --jobs 4 --without development test && \
     rm -rf /usr/share/ri && \
     adduser -u 9000 -D app
 
