@@ -8,14 +8,8 @@ RSpec.describe CC::Engine::Content do
   describe "#body" do
     subject { content.body }
 
-    it "pulls from the config/contents directory" do
-      content = File.read(
-        File.expand_path(
-          File.join(__FILE__, "..", "..", "..", "..", "config", "contents", "#{linter}.md")
-        )
-      )
-
-      expect(subject).to eq(content)
+    it "is a Markdown document starting with the linter's name" do
+      expect(subject.split("\n").first).to eq("## HamlLint/#{linter}")
     end
 
     context "when it's an unknown linter" do
