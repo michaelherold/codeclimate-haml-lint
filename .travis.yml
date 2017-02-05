@@ -1,0 +1,12 @@
+cache: bundler
+language: ruby
+rvm:
+  - 2.3
+script: bundle exec rake
+sudo: false
+
+before_install:
+  - gem update --system --no-doc --no-ri
+  - gem install bundler
+
+bundler_args: --without development --with ci

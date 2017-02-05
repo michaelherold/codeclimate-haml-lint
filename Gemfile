@@ -11,6 +11,10 @@ group :development do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-rubocop"
+end
+
+group :ci do
+  gem "codeclimate-test-reporter", require: false
   gem "simplecov", require: false
 end
 
