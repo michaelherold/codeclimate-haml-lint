@@ -3,6 +3,7 @@ require "cc/engine/categories"
 require "cc/engine/content"
 require "cc/engine/fingerprint"
 require "cc/engine/location"
+require "cc/engine/severity"
 
 module CC
   module Engine
@@ -23,7 +24,7 @@ module CC
         @linter = linter_name
         @description = message
         @location = Location.from_haml_lint(location: location, path: path, root: root)
-        @severity = severity_from(severity)
+        @severity = Severity.from_haml_lint(severity)
       end
 
       # The description of the issue
@@ -117,19 +118,6 @@ module CC
       # @api private
       # @return [String]
       attr_reader :linter
-
-      # Converts the HamlLint severity ontology into the Code Climate one
-      #
-      # @api private
-      # @param [String] severity the severity of the issue in HamlLint ontology
-      # @return [String]
-      def severity_from(severity)
-        case severity
-        when "warning" then "normal"
-        when "error" then "critical"
-        else "info"
-        end
-      end
     end
   end
 end
