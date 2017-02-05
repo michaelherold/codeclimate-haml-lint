@@ -20,17 +20,10 @@ module CC
       # @param [String] severity the severity of the issue in HamlLint terminology
       def initialize(linter_name:, location:, message:, path:, root: "", severity:)
         @linter = linter_name
-        @categories = Categories.new(linter)
         @description = message
         @location = Location.from_haml_lint(location: location, path: path, root: root)
         @severity = severity_from(severity)
       end
-
-      # The categories of the issue
-      #
-      # @api public
-      # @return [CC::Engine::Categories]
-      attr_reader :categories
 
       # The description of the issue
       #
@@ -49,6 +42,14 @@ module CC
       # @api public
       # @return [String]
       attr_reader :severity
+
+      # The categories of the issue
+      #
+      # @api public
+      # @return [CC::Engine::Categories]
+      def categories
+        @categories ||= Categories.new(linter)
+      end
 
       # The name of the check that caught the issue
       #
@@ -75,10 +76,10 @@ module CC
           type: type,
           check_name: check_name,
           description: description,
-          categories: categories,
           location: location,
           severity: severity,
         }.tap do |hash|
+          hash[:categories] = categories unless categories.empty?
           hash[:content] = content.body unless content.empty?
         end
       end
