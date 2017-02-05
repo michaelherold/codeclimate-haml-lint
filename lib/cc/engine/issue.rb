@@ -1,6 +1,7 @@
 require "dry-equalizer"
 require "cc/engine/categories"
 require "cc/engine/content"
+require "cc/engine/fingerprint"
 require "cc/engine/location"
 
 module CC
@@ -67,6 +68,14 @@ module CC
         @content ||= Content.new(linter)
       end
 
+      # A unique identifier for overridable issues
+      #
+      # @apu public
+      # @return [CC::Engine::Fingerprint]
+      def fingerprint
+        @fingerprint ||= Fingerprint.new(location.path, linter, description)
+      end
+
       # Converts the issue into a Hash
       #
       # @api public
@@ -81,6 +90,7 @@ module CC
         }.tap do |hash|
           hash[:categories] = categories unless categories.empty?
           hash[:content] = content.body unless content.empty?
+          hash[:fingerprint] = fingerprint unless fingerprint.empty?
         end
       end
 
