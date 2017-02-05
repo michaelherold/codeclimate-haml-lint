@@ -1,11 +1,12 @@
 require "dry-equalizer"
 require "cc/engine/categories"
+require "cc/engine/location"
 
 module CC
   module Engine
     # Transforms the HamlLint JSON format to the one expected by Code Climate
     class Issue
-      include Dry::Equalizer(:categories, :check_name, :description, :location, :root, :severity)
+      include Dry::Equalizer(:categories, :check_name, :description, :location, :severity)
 
       # Instantiates a new Code Climate issue
       #
@@ -18,10 +19,9 @@ module CC
       # @param [String] severity the severity of the issue in HamlLint terminology
       def initialize(linter_name:, location:, message:, path:, root: "", severity:)
         @linter = linter_name
-        @root = Pathname.new(root).realpath.to_s
         @categories = Categories.new(linter)
         @description = message
-        @location = location_from(path, location)
+        @location = Location.from_haml_lint(location: location, path: path, root: root)
         @severity = severity_from(severity)
       end
 
@@ -40,7 +40,7 @@ module CC
       # The location of the issue in the file
       #
       # @api public
-      # @return [Hash]
+      # @return [CC::Engine::Location]
       attr_reader :location
 
       # The severity of the issue in Code Climate terminology
@@ -87,26 +87,6 @@ module CC
       # @api private
       # @return [String]
       attr_reader :linter
-
-      # The root path where the issue was detected
-      #
-      # @api private
-      # @return [String]
-      attr_reader :root
-
-      # Converts the HamlLint location format into the Code Climate format
-      #
-      # @api private
-      # @return [Hash]
-      def location_from(path, location)
-        {
-          path: path.sub(%r{^#{root}/}, ""),
-          lines: {
-            begin: location[:line],
-            end: location[:line],
-          },
-        }
-      end
 
       # Converts the HamlLint severity ontology into the Code Climate one
       #
