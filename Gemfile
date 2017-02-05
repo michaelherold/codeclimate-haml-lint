@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "dry-equalizer", require: false
 gem "haml_lint", "~> 0.20.0", require: false
 gem "parser", "~> 2.3.3.1", require: false
 gem "pry", require: false
