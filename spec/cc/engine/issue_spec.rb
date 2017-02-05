@@ -1,4 +1,5 @@
 require "cc/engine/issue"
+require "cc/engine/location"
 
 RSpec.describe CC::Engine::Issue do
   let(:severity) { "warning" }

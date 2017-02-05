@@ -57,11 +57,11 @@ module CC
         "HamlLint/#{linter}"
       end
 
-      # Converts the issue into a JSON document
+      # Converts the issue into a Hash
       #
       # @api public
-      # @return [String]
-      def to_json
+      # @return [Hash]
+      def to_h
         {}.tap do |hash|
           hash[:type] = type
           hash[:check_name] = check_name
@@ -69,7 +69,15 @@ module CC
           hash[:categories] = categories
           hash[:location] = location
           hash[:severity] = severity
-        end.to_json
+        end
+      end
+
+      # Converts the issue into a JSON document
+      #
+      # @api public
+      # @return [String]
+      def to_json(*)
+        to_h.to_json
       end
 
       # The type of the issue in Code Climate's terminology

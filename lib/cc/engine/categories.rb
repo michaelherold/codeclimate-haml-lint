@@ -18,8 +18,8 @@ module CC
       #
       # @api public
       # @return [String]
-      def to_json(*)
-        ["Placeholder"].to_json
+      def to_json(*args)
+        ["Placeholder"].to_json(*args)
       end
 
       private
