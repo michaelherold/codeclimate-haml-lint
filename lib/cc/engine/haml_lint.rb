@@ -35,12 +35,13 @@ module CC
       def files_to_inspect
         @files_to_inspect ||= FileList.new(
           root: root,
-          include_paths: engine_config["include_paths"]
+          engine_config: engine_config,
+          linter_config: linter_config
         )
       end
 
       def linter_config
-        @linter_config ||= HamlLint::ConfigurationLoader.default_configuration
+        @linter_config ||= ::HamlLint::ConfigurationLoader.default_configuration
       end
     end
   end

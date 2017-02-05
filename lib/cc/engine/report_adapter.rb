@@ -53,7 +53,7 @@ module CC
       # @param [IO] io the output for the +HamlLint::Logger+
       # @return [HamlLint::Logger]
       def log(io)
-        HamlLint::Logger.new(io)
+        ::HamlLint::Logger.new(io)
       end
 
       # Converts the HamlLint JSON output to a list of issues
@@ -95,7 +95,7 @@ module CC
       # @param [IO] io the output for the +HamlLint::Reporter::JsonReporter+
       # @return [HamlLint::Reporter::JsonReporter]
       def reporter(io)
-        HamlLint::Reporter::JsonReporter.new(log(io))
+        ::HamlLint::Reporter::JsonReporter.new(log(io))
       end
     end
   end

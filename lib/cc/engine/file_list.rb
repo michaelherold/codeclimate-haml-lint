@@ -55,7 +55,7 @@ module CC
       # @api private
       # @return [HamlLint::Runner]
       def runner
-        @runner ||= HamlLint::Runner.new
+        @runner ||= ::HamlLint::Runner.new
       end
     end
   end

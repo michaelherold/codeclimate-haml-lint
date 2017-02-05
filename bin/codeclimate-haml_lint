@@ -12,4 +12,4 @@ engine_config =
     {}
   end
 
-CC::Engine::HamlLint.new(root: Dir.pwd, config: engine_config, io: STDOUT).run
+CC::Engine::HamlLint.new(root: Dir.pwd, engine_config: engine_config, io: STDOUT).run
