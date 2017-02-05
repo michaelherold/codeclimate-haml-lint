@@ -4,6 +4,7 @@
 /_yardoc/
 /coverage/
 /doc/
+/haml_lint-git/
 /pkg/
 /spec/reports/
 /spec/examples.txt

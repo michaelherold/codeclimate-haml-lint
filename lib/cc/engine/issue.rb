@@ -1,5 +1,6 @@
 require "dry-equalizer"
 require "cc/engine/categories"
+require "cc/engine/content"
 require "cc/engine/location"
 
 module CC
@@ -57,18 +58,28 @@ module CC
         "HamlLint/#{linter}"
       end
 
+      # The content for an issue
+      #
+      # @api public
+      # @return [CC::Engine::Content]
+      def content
+        @content ||= Content.new(linter)
+      end
+
       # Converts the issue into a Hash
       #
       # @api public
       # @return [Hash]
       def to_h
-        {}.tap do |hash|
-          hash[:type] = type
-          hash[:check_name] = check_name
-          hash[:description] = description
-          hash[:categories] = categories
-          hash[:location] = location
-          hash[:severity] = severity
+        {
+          type: type,
+          check_name: check_name,
+          description: description,
+          categories: categories,
+          location: location,
+          severity: severity,
+        }.tap do |hash|
+          hash[:content] = content.body unless content.empty?
         end
       end
 
