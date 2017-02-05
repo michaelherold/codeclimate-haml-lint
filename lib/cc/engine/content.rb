@@ -24,8 +24,12 @@ module CC
         @body ||= (File.exist?(content_path) && File.read(content_path)) || nil
       end
 
+      # Checks whether the content is empty
+      #
+      # @api public
+      # @return [Boolean]
       def empty?
-        !body.nil?
+        !body
       end
 
       private
