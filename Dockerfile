@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine
+FROM ruby:2.3-alpine
 
 WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/
