@@ -18,8 +18,8 @@ end
 
 group :ci do
   gem "codeclimate-test-reporter", require: false
-  gem "simplecov", require: false
   gem "inch", require: false
+  gem "simplecov", require: false
   gem "yard", "~> 0.8", require: false
   gem "yardstick", require: false
 end
