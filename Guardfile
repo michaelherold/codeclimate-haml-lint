@@ -2,6 +2,10 @@ guard :bundler do
   watch("Gemfile")
 end
 
+guard :inch do
+  watch(%r{lib/.+\.rb})
+end
+
 guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
@@ -16,6 +20,11 @@ guard :rspec, cmd: "bundle exec rspec" do
 end
 
 guard :rubocop do
+  watch("Rakefile")
   watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+end
+
+guard :yard do
+  watch(%r{lib/.+\.rb})
 end
