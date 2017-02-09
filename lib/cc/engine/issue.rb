@@ -3,6 +3,7 @@ require "cc/engine/categories"
 require "cc/engine/content"
 require "cc/engine/fingerprint"
 require "cc/engine/location"
+require "cc/engine/remediation_points"
 require "cc/engine/severity"
 
 module CC
@@ -77,6 +78,14 @@ module CC
         @fingerprint ||= Fingerprint.new(location.path, linter, description)
       end
 
+      # The difficulty to fix an issue
+      #
+      # @api public
+      # @return [CC::Engine::RemediationPoints]
+      def points
+        @points ||= RemediationPoints.new(linter)
+      end
+
       # Converts the issue into a Hash
       #
       # @api public
@@ -92,6 +101,7 @@ module CC
           hash[:categories] = categories unless categories.empty?
           hash[:content] = content.body unless content.empty?
           hash[:fingerprint] = fingerprint unless fingerprint.empty?
+          hash[:remediation_points] = points unless points.empty?
         end
       end
 
