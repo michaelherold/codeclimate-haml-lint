@@ -1,13 +1,10 @@
-require "inch/rake"
-require "rspec/core/rake_task"
-require "rubocop/rake_task"
-require "yard/rake/yardoc_task"
-require "yardstick/rake/measurement"
-require "yardstick/rake/verify"
-
 Rake.add_rakelib "lib/tasks"
 
-Inch::Rake::Suggest.new(:inch)
+begin
+  require "inch/rake"
+  Inch::Rake::Suggest.new(:inch)
+rescue LoadError
+end
 
 task :mutant do
   command = [
@@ -21,16 +18,32 @@ task :mutant do
   system command
 end
 
+require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
-RuboCop::RakeTask.new(:rubocop)
-YARD::Rake::YardocTask.new(:yard)
 
-Yardstick::Rake::Measurement.new(:yardstick_measure) do |measurement|
-  measurement.output = "coverage/docs.txt"
+require "rubocop/rake_task"
+RuboCop::RakeTask.new(:rubocop)
+
+begin
+  require "yard/rake/yardoc_task"
+  YARD::Rake::YardocTask.new(:yard)
+rescue LoadError
 end
 
-Yardstick::Rake::Verify.new(:yardstick_verify) do |verify|
-  verify.threshold = 100
+begin
+  require "yardstick/rake/measurement"
+  Yardstick::Rake::Measurement.new(:yardstick_measure) do |measurement|
+    measurement.output = "coverage/docs.txt"
+  end
+rescue LoadError
+end
+
+begin
+  require "yardstick/rake/verify"
+  Yardstick::Rake::Verify.new(:yardstick_verify) do |verify|
+    verify.threshold = 100
+  end
+rescue LoadError
 end
 
 task yardstick: %i(yardstick_measure yardstick_verify)

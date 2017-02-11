@@ -6,4 +6,4 @@ image:
 	docker build --rm -t ${IMAGE_NAME} .
 
 test:
-	docker run --rm ${IMAGE_NAME} sh -c "cd /usr/src/app && bundle exec rake"
+	docker run --rm ${IMAGE_NAME} sh -c "cd /usr/src/app && bundle exec rake spec"
