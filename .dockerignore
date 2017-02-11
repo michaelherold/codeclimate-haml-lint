@@ -6,6 +6,8 @@
 .ruby-version
 .travis.yml
 .yardoc
+bin/console
+bin/setup
 coverage/
 doc/
 examples/
