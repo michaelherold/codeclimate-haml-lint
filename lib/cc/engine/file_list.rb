@@ -10,13 +10,13 @@ module CC
       # Instantiates a new FileList
       #
       # @param [String] root the root directory to pull files from
-      # @param [Hash] engine_config the engine configuration per the
-      #   CodeClimate specification
+      # @param [CC::Engine::Configuration] engine_config the engine
+      # configuration per the CodeClimate specification
       # @param [HamlLint::Configuration] linter_config the +haml_lint+
       #   configuration loaded from +.haml-lint.yml+
       def initialize(root:, engine_config:, linter_config:)
         @root = root
-        @include_paths = engine_config["include_paths"] || %w(./)
+        @include_paths = engine_config.include_paths
         @linter_config = linter_config
       end
 

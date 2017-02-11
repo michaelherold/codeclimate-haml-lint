@@ -4,7 +4,6 @@ require "cc/engine/source_file"
 RSpec.describe CC::Engine::SourceFile do
   include FileSystemHelper
 
-  let(:engine_config) { {} }
   let(:io) { StringIO.new }
   let(:linter_config) { HamlLint::ConfigurationLoader.default_configuration }
   let(:root) { Dir.mktmpdir }

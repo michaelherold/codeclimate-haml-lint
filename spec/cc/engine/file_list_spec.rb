@@ -4,7 +4,7 @@ require "cc/engine/file_list"
 RSpec.describe CC::Engine::FileList do
   include FileSystemHelper
 
-  let(:engine_config) { {} }
+  let(:engine_config) { CC::Engine::Configuration.new }
   let(:linter_config) { HamlLint::ConfigurationLoader.default_configuration }
   let(:root) { Dir.mktmpdir }
 
@@ -41,7 +41,7 @@ RSpec.describe CC::Engine::FileList do
   end
 
   context "with engine configuration" do
-    let(:engine_config) { {"include_paths" => %w(src/)} }
+    let(:engine_config) { CC::Engine::Configuration.new("include_paths" => %w(src/)) }
 
     it "respects the engine configuration's include_paths" do
       create_source_file("a.html.haml", "%p Hello, world!")
