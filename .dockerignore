@@ -6,6 +6,8 @@
 .ruby-version
 .travis.yml
 .yardoc
+.yardopts
+*.md
 bin/console
 bin/setup
 coverage/
