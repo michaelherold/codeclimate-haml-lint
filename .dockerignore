@@ -1,2 +1,14 @@
 .bundle
+.codeclimate.yml
 .git
+.gitignore
+.rubocop.yml
+.ruby-version
+.travis.yml
+.yardoc
+coverage/
+doc/
+examples/
+tmp/
+Guardfile
+Makefile
