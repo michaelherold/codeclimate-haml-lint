@@ -13,6 +13,13 @@ module CC
 
       # Instantiates a new report adapter
       #
+      # @example
+      #   CC::Engine::ReportAdapter.new(
+      #     report: HamlLint::Report.new([], %w(a.haml)),
+      #     root: "/tmp"
+      #   )
+      #
+      # @api public
       # @param [HamlLint::Report] report the report to adapt to CodeClimate
       # @param [String] root the root path for the report
       def initialize(report:, root:)
@@ -20,6 +27,18 @@ module CC
         @root = root
       end
 
+      # @!method each
+      #   @example
+      #     adapter = CC::Engine::ReportAdapter.new(
+      #       report: HamlLint::Report.new([], %w(a.haml)),
+      #       root: "/tmp"
+      #     )
+      #
+      #     adapter.each { |issue| puts issue }
+      #
+      #   @api public
+      #   @see Array#each
+      #   @return [Enumerator]
       def_delegators :issues, :each
 
       private

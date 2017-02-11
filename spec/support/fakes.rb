@@ -1,6 +1,10 @@
 module Fakes
   # Generates a list of two fake HamlLint::Lint objects to test againsst
   #
+  # @example
+  #   fake_lints
+  #
+  # @api public
   # @return [Array<HamlLint::Lint>]
   def fake_lints
     lines = [502, 724]

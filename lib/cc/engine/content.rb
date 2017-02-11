@@ -4,6 +4,9 @@ module CC
     class Content
       # Instantiates a piece of content for a linter
       #
+      # @example
+      #   CC::Engine::Content.new("AltText")
+      #
       # @api public
       # @param [String] linter the linter to read content for
       def initialize(linter)
@@ -12,11 +15,17 @@ module CC
 
       # The linter to read content for
       #
+      # @example
+      #   CC::Engine::Content.new("AltText").linter  #=> "AltText"
+      #
       # @api public
       # @return [String]
       attr_reader :linter
 
       # The suggestions for how to fix a given piece of lint
+      #
+      # @example
+      #   CC::Engine::Content.new("AltText").body  #=> "..."
       #
       # @api public
       # @return [String, NilClass]
@@ -25,6 +34,9 @@ module CC
       end
 
       # Checks whether the content is empty
+      #
+      # @example
+      #   CC::Engine::Content.new("AltText").empty?  #=> false
       #
       # @api public
       # @return [Boolean]

@@ -9,6 +9,14 @@ module CC
     class SourceFile
       # Instantiates a new source file
       #
+      # @example
+      #   CC::Engine::SourceFile.new(
+      #     io: StringIO.new,
+      #     linter_config: ::HamlLint::ConfigurationLoader.default_configuration,
+      #     path: "a.haml",
+      #     root: "/tmp"
+      #   )
+      #
       # @api public
       # @param [IO] io the IO object to output the analysis to
       # @param [HamlLint::Configuration] linter_config the configuration for the HamlLint linters
@@ -23,6 +31,15 @@ module CC
 
       # The relative path to the file
       #
+      # @example
+      #   source_file = CC::Engine::SourceFile.new(
+      #     io: StringIO.new,
+      #     linter_config: ::HamlLint::ConfigurationLoader.default_configuration,
+      #     path: "a.haml",
+      #     root: "/tmp"
+      #   )
+      #   source_file.path #=> "a.haml"
+      #
       # @api public
       # @return [String]
       def path
@@ -31,6 +48,15 @@ module CC
       end
 
       # Processes the file with HamlLint and outputs to the configured IO
+      #
+      # @example
+      #   source_file = CC::Engine::SourceFile.new(
+      #     io: StringIO.new,
+      #     linter_config: ::HamlLint::ConfigurationLoader.default_configuration,
+      #     path: "a.haml",
+      #     root: "/tmp"
+      #   )
+      #   source_file.process
       #
       # @api public
       # @return [void]
@@ -43,7 +69,7 @@ module CC
 
       private
 
-      # The IO to write the result of the analysis to.
+      # The IO to write the result of the analysis to
       #
       # @api private
       # @return [IO]

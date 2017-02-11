@@ -8,6 +8,13 @@ module CC
 
       # Converts from the HamlLint location storage to Code Climate format
       #
+      # @example
+      #   CC::Engine::Location.from_haml_lint(
+      #     location: {line: 42}
+      #     path: "a.haml",
+      #     root: "/tmp"
+      #   )
+      #
       # @api public
       # @param [Hash] location a Hash with a :line key
       # @param [String] path the absolute path to the file
@@ -20,6 +27,9 @@ module CC
 
       # Instantiates a new location
       #
+      # @example
+      #   CC::Engine::Location.new(line: 42, path: "a.haml")
+      #
       # @api public
       # @param [Integer] line the line number in the file
       # @param [String] path the absolute path to the file
@@ -30,17 +40,29 @@ module CC
 
       # The line in the file
       #
+      # @example
+      #   location = CC::Engine::Location.new(line: 42, path: "a.haml")
+      #   location.line  #=> 42
+      #
       # @api public
       # @return [Integer]
       attr_reader :line
 
       # The absolute path to the file
       #
+      # @example
+      #   location = CC::Engine::Location.new(line: 42, path: "a.haml")
+      #   location.path  #=> "a.haml"
+      #
       # @api public
       # @return [String]
       attr_reader :path
 
       # Converts the location to the Code Climate hash format
+      #
+      # @example
+      #   location = CC::Engine::Location.new(line: 42, path: "a.haml")
+      #   location.to_h  #=> {path: "a.haml", lines: {begin: 42, end: 42}}
       #
       # @api public
       # @return [Hash]
@@ -55,6 +77,10 @@ module CC
       end
 
       # Converts the location to the Code Climate JSON format
+      #
+      # @example
+      #   location = CC::Engine::Location.new(line: 42, path: "a.haml")
+      #   location.to_json  #=> '{"path": "a.haml", "lines": {"begin": 42, "end": 42"}}'
       #
       # @api public
       # @return [String]

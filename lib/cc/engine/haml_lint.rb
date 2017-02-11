@@ -7,11 +7,20 @@ require "cc/engine/configuration"
 require "cc/engine/file_list"
 require "cc/engine/source_file"
 
+# The Code Climate namespace by convention
 module CC
+  # The Code Climate Engine namespace by convention
   module Engine
     # Lints files in the Code Climate format
     class HamlLint
       # Instantiates a new HamlLint engine
+      #
+      # @example
+      #   CC::Engine::HamlLint.new(
+      #     root: Dir.pwd,
+      #     engine_config: CC::Engine::Configuration.new,
+      #     io: STDOUT
+      #   )
       #
       # @api public
       # @param [String] root the root directory to analyze from
@@ -25,6 +34,13 @@ module CC
       end
 
       # Lints files based on the engine configuration
+      #
+      # @example
+      #   CC::Engine::HamlLint.new(
+      #     root: Dir.pwd,
+      #     engine_config: CC::Engine::Configuration.new,
+      #     io: STDOUT
+      #   ).run
       #
       # @api public
       # @return [void]

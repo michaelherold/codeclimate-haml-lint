@@ -6,6 +6,7 @@ module CC
     class Categories
       include Dry::Equalizer(:linter)
 
+      # Maps the linters to their categories
       CATEGORIES = {
         "AltText" => "Compatibility",
         "ClassAttributeWithStaticValue" => "Style",
@@ -35,6 +36,9 @@ module CC
 
       # Instantiates a set of categories for a linter
       #
+      # @example
+      #   CC::Engine::Categories.new("AltText")
+      #
       # @api public
       # @param [String] linter the name of the linter to categorize
       def initialize(linter)
@@ -43,11 +47,17 @@ module CC
 
       # The name of the linter to categorize
       #
+      # @example
+      #   CC::Engine::Categories.new("AltText").linter  #=> "AltText"
+      #
       # @api public
       # @return [String]
       attr_reader :linter
 
       # Checks whether the category is empty
+      #
+      # @example
+      #   CC::Engine::Categories.new("AltText").empty?  #=> false
       #
       # @api public
       # @return [Boolean]
@@ -56,6 +66,9 @@ module CC
       end
 
       # Converts the categories into a JSON format
+      #
+      # @example
+      #   CC::Engine::Categories.new("AltText").to_json  #=> ["Compatibility"]
       #
       # @api public
       # @return [String]

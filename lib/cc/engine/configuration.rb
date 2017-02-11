@@ -9,6 +9,9 @@ module CC
 
       # Loads a configuration based on a file
       #
+      # @example
+      #   CC::Engine::Configuration.from_file("/config.json")
+      #
       # @api public
       # @param [String] filename the absolute path to the configuration file
       # @return [CC::Engine::Configuration]
@@ -22,6 +25,19 @@ module CC
 
       # Instantiates a new engine configuration
       #
+      # @example
+      #   CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #
       # @api public
       # @param [Hash] attributes the attributes for the engine configuration
       # @return [CC::Engine::Configuration]
@@ -31,6 +47,20 @@ module CC
 
       # Configuration for the individual linters
       #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.checks  #=> {"AltText" => {"enabled" => false}}
+      #
       # @api public
       # @return [Hash]
       def checks
@@ -38,6 +68,20 @@ module CC
       end
 
       # The name of the HamlLint configuration file to use
+      #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.config  #=> "my_haml_lint.yml"
       #
       # @api public
       # @return [String, NilClass]
@@ -47,6 +91,20 @@ module CC
 
       # Checks whether the engine is configured or not
       #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.enabled?  #=> true
+      #
       # @api public
       # @return [Boolean]
       def enabled?
@@ -54,6 +112,20 @@ module CC
       end
 
       # The paths to exclude from analysis
+      #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.exclude_paths  #=> []
       #
       # @api public
       # @return [Array<String>]
@@ -63,6 +135,20 @@ module CC
 
       # The paths to include in analysis
       #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.include_paths  #=> ["./"]
+      #
       # @api public
       # @return [Array<String>]
       def include_paths
@@ -70,6 +156,20 @@ module CC
       end
 
       # Converts the engine configuration to HamlLint configuration
+      #
+      # @example
+      #   config = CC::Engine::Configuration.new({
+      #     "checks" => {
+      #       "AltText" => {
+      #         "enabled" => false
+      #       }
+      #     },
+      #     "config" => "my_haml_lint.yml",
+      #     "enabled" => true,
+      #     "exclude_paths" => [],
+      #     "include_paths" => ["./"]
+      #   })
+      #   config.to_linter_config
       #
       # @api public
       # @return [HamlLint::Configuration]

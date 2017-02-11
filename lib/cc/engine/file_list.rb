@@ -1,14 +1,24 @@
 require "forwardable"
 require "haml_lint/runner"
+require "cc/engine/configuration"
 
 module CC
   module Engine
+    # Gathers a list of files to analyze with the engine
     class FileList
       extend Enumerable
       extend Forwardable
 
       # Instantiates a new FileList
       #
+      # @example
+      #   CC::Engine::FileList.new(
+      #     root: "/tmp",
+      #     engine_config: CC::Engine::Configuration.new,
+      #     linter_config: {}
+      #   )
+      #
+      # @api public
       # @param [String] root the root directory to pull files from
       # @param [CC::Engine::Configuration] engine_config the engine
       # configuration per the CodeClimate specification
@@ -20,12 +30,51 @@ module CC
         @linter_config = linter_config
       end
 
+      # @!method each
+      #
+      #   @example
+      #     CC::Engine::FileList.new(
+      #       root: "/tmp",
+      #       engine_config: CC::Engine::Configuration.new,
+      #       linter_config: {}
+      #     ).each  #=> Enumerator
+      #
+      #   @api public
+      #   @see Array#each
+      #   @return [Enumerator]
+      #
+      # @!method to_a
+      #
+      #   @example
+      #     CC::Engine::FileList.new(
+      #       root: "/tmp",
+      #       engine_config: CC::Engine::Configuration.new,
+      #       linter_config: {}
+      #     ).to_a  #=> ["a.haml"]
+      #
+      #   @api public
+      #   @see Array#to_a
+      #   @return [Array]
       def_delegators :filtered_files, :each, :to_a
 
       private
 
+      # The paths to include within the root
+      #
+      # @api private
+      # @return [Array<String>]
       attr_reader :include_paths
+
+      # The configuration for the linters
+      #
+      # @api private
+      # @return [HamlLint::Configuration]
       attr_reader :linter_config
+
+      # The root path of to gather files in
+      #
+      # @api private
+      # @return [String]
       attr_reader :root
 
       # Lists the absolute paths to every possible file in the root

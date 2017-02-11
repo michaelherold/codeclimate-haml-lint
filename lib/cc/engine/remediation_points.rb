@@ -6,8 +6,10 @@ module CC
     class RemediationPoints
       include Dry::Equalizer(:points)
 
+      # The default points for the smallest issue
       DEFAULT_POINTS = 50_000
 
+      # Maps the linters to their remediation points
       POINTS = {
         "AltText" => DEFAULT_POINTS * 2,
         "ClassAttributeWithStaticValue" => DEFAULT_POINTS,
@@ -37,6 +39,9 @@ module CC
 
       # Instantiates a remediate points value for a linter
       #
+      # @example
+      #   CC::Engine::RemediationPoints.new("TagName")
+      #
       # @api public
       # @param [String] linter the name of the linter to remediate
       def initialize(linter)
@@ -44,6 +49,10 @@ module CC
       end
 
       # Checks whether there is a points assignment for the linter
+      #
+      # @example
+      #   points = CC::Engine::RemediationPoints.new("TagName")
+      #   points.empty?  #=> false
       #
       # @api public
       # @return [Boolean]
@@ -53,6 +62,10 @@ module CC
 
       # The number of remediation points for the linter
       #
+      # @example
+      #   points = CC::Engine::RemediationPoints.new("TagName")
+      #   points.points
+      #
       # @api public
       # @return [Integer]
       def points
@@ -60,6 +73,10 @@ module CC
       end
 
       # Converts the remediation points into a JSON format
+      #
+      # @example
+      #   points = CC::Engine::RemediationPoints.new("TagName")
+      #   points.to_json
       #
       # @api public
       # @return [String]

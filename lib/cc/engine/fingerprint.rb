@@ -22,6 +22,9 @@ module CC
 
       # Instantiates a new fingerprint
       #
+      # @example
+      #   CC::Engine::Fingerprint.new("a.haml", "LineLength", "Problem").empty?
+      #
       # @api public
       # @param [String] path the path of the file to fingerprint
       # @param [String] linter the name of the linter to fingerprint
@@ -34,6 +37,10 @@ module CC
 
       # Checks whether the fingerprint is empty
       #
+      # @example
+      #   CC::Engine::Fingerprint.new("a.haml", "LineLength", "Problem").empty?
+      #   #=> false
+      #
       # @api public
       # @return [Boolean]
       def empty?
@@ -41,6 +48,10 @@ module CC
       end
 
       # Converts the fingerprint to a string
+      #
+      # @example
+      #   CC::Engine::Fingerprint.new("a.haml", "LineLength", "Problem").to_s
+      #   #=> "md5digestedstring"
       #
       # @api public
       # @return [String]
@@ -76,7 +87,7 @@ module CC
 
       # A stripped version of the message
       #
-      # @api priate
+      # @api private
       # @return [String]
       def stripped_message
         message.gsub(LINE_COUNT_STRIPPER, "").strip

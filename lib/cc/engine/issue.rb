@@ -14,6 +14,16 @@ module CC
 
       # Instantiates a new Code Climate issue
       #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #
       # @api public
       # @param [String] linter_name the name of the linter that threw the error
       # @param [Hash] location a container with the line of the issue
@@ -30,11 +40,33 @@ module CC
 
       # The description of the issue
       #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.description  #=> "This is a problem"
+      #
       # @api public
       # @return [String]
       attr_reader :description
 
       # The location of the issue in the file
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.location
       #
       # @api public
       # @return [CC::Engine::Location]
@@ -42,11 +74,33 @@ module CC
 
       # The severity of the issue in Code Climate terminology
       #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.severity  #=> "critical"
+      #
       # @api public
       # @return [String]
       attr_reader :severity
 
       # The categories of the issue
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.category  #=> ["Compability"]
       #
       # @api public
       # @return [CC::Engine::Categories]
@@ -56,6 +110,17 @@ module CC
 
       # The name of the check that caught the issue
       #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.check_name  #=> "HamlLint/AltText"
+      #
       # @api public
       # @return [String]
       def check_name
@@ -63,6 +128,17 @@ module CC
       end
 
       # The content for an issue
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.content
       #
       # @api public
       # @return [CC::Engine::Content]
@@ -72,13 +148,35 @@ module CC
 
       # A unique identifier for overridable issues
       #
-      # @apu public
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.fingerprint
+      #
+      # @api public
       # @return [CC::Engine::Fingerprint]
       def fingerprint
         @fingerprint ||= Fingerprint.new(location.path, linter, description)
       end
 
       # The difficulty to fix an issue
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.points
       #
       # @api public
       # @return [CC::Engine::RemediationPoints]
@@ -87,6 +185,28 @@ module CC
       end
 
       # Converts the issue into a Hash
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.to_h
+      #   #=> {
+      #     type: "issue",
+      #     check_name: "HamlLint/AltText",
+      #     description: "This is a problem",
+      #     location: <#CC::Engine::Location>,
+      #     severity: "critical",
+      #     categories: ["Compatibility"],
+      #     content: "...",
+      #     fingerprint: <#CC::Engine::Fingerprint>,
+      #     remediation_points: 50000
+      #   }
       #
       # @api public
       # @return [Hash]
@@ -107,6 +227,34 @@ module CC
 
       # Converts the issue into a JSON document
       #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.to_json
+      #   #=> {
+      #     "type": "issue",
+      #     "check_name": "HamlLint/AltText",
+      #     "description": "This is a problem",
+      #     "location": {
+      #       "path": "a.haml",
+      #       "lines": {
+      #         "begin": 42,
+      #         "end": 42
+      #       }
+      #     },
+      #     "severity": "critical",
+      #     "categories": ["Compatibility"],
+      #     "content": "...",
+      #     "fingerprint": "...",
+      #     "remediation_points": 50000
+      #   }
+      #
       # @api public
       # @return [String]
       def to_json(*)
@@ -114,6 +262,17 @@ module CC
       end
 
       # The type of the issue in Code Climate's terminology
+      #
+      # @example
+      #   issue = CC::Engine::Issue.new(
+      #     linter_name: "AltText",
+      #     location: {line: 42},
+      #     message: "This is a problem",
+      #     path: "a.haml",
+      #     root: "/tmp",
+      #     severity: "error"
+      #   )
+      #   issue.type  #=> "issue"
       #
       # @api public
       # @return [String]
