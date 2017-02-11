@@ -8,9 +8,25 @@
 [inch]: http://inch-ci.org/github/michaelherold/codeclimate-haml_lint
 [travis]: https://travis-ci.org/michaelherold/codeclimate-haml_lint
 
-Have you ever wanted to know exactly how good you are at writing consistent Haml? Well look no more! By using this Code Climate engine, you can harness the power of [haml-lint] to score your code.
+Have you ever wanted to know exactly how good you are at writing consistent Haml? Well look no more! By using this Code Climate engine, you can harness the power of [Haml-Lint] to score your code.
 
-[haml-lint]: https://github.com/brigade/haml-lint
+[Haml-Lint]: https://github.com/brigade/haml-lint
+
+## Want to Help?
+
+Awesome! We strive to be welcoming to everyone. Check out the [contributing guide] and make sure to read our [code of conduct].
+
+[contributing guide]: https://github.com/michaelherold/codeclimate-haml_lint/blob/master/CONTRIBUTING.md
+[code of conduct]: https://github.com/michaelherold/codeclimate-haml_lint/blob/master/CODE_OF_CONDUCT.md
+
+## Need Some Help?
+
+For help with Haml-Lint, [check out their documentation].
+
+If you're running into a Code Climate issue, first check out our [engine documentation] and look over any existing [issues], as your question may have already been covered. If not, please [open an issue] and we'll see what we can do to help.
+
+[check out their documentation]: https://github.com/brigade/haml-lint
+[open an issue]: https://github.com/michaelherold/codeclimate-haml_lint/issues
 
 ## Installation
 
@@ -41,7 +57,7 @@ If you don't care to tweak your configuration, you should now be able to run the
 
     $ codeclimate analyze
 
-To tweak the linters that `haml-lint` will run, follow this pattern in the configuration file:
+To tweak the linters that Haml-Lint will run, follow this pattern in the configuration file:
 
 ```yaml
 engines:
@@ -63,11 +79,11 @@ exclude_paths:
 
 Most of the configuration lives under the `engines.haml_lint` key. The options are as follows:
 
-* `config.file` - The `haml-lint` configuration file you want to use as a base.
-* `checks.<LINTER_NAME>` - Configuration for the linter given by `<LINTER_NAME>`. You can pass any of the configuration options for the linter in the base `haml-lint` format. See [the haml-lint documentation] for more information.
+* `config.file` - The Haml-Lint configuration file you want to use as a base.
+* `checks.<LINTER_NAME>` - Configuration for the linter given by `<LINTER_NAME>`. You can pass any of the configuration options for the linter in the base Haml-Lint format. See [the Haml-Lint documentation] for more information.
 * Global configuration like `exclude_paths` is also included in the engine's configuration. See the [Code Climate documentation] for more information.
 
-[the haml-lint documentation]: https://github.com/brigade/haml-lint#configuration
+[the Haml-Lint documentation]: https://github.com/brigade/haml-lint#configuration
 [Code Climate documentation]: https://docs.codeclimate.com/docs/configuring-your-code-climate-analysis
 
 ## Versioning
