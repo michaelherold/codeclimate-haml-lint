@@ -71,7 +71,7 @@ module CC
       #   CC::Engine::Categories.new("AltText").to_json  #=> ["Compatibility"]
       #
       # @api public
-      # @return [String]
+      # @return [String] a JSON document of the compatibilities
       def to_json(*args)
         if category
           [category].to_json(*args)

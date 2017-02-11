@@ -31,6 +31,7 @@ module CC
       end
 
       # @!method each
+      #  Enumerates through the file list
       #
       #   @example
       #     CC::Engine::FileList.new(
@@ -41,9 +42,10 @@ module CC
       #
       #   @api public
       #   @see Array#each
-      #   @return [Enumerator]
+      #   @return [Enumerator] an enumerator of the files in the list
       #
       # @!method to_a
+      #   Flattens the file list into an array
       #
       #   @example
       #     CC::Engine::FileList.new(
@@ -54,7 +56,7 @@ module CC
       #
       #   @api public
       #   @see Array#to_a
-      #   @return [Array]
+      #   @return [Array] an array of the files in the list
       def_delegators :filtered_files, :each, :to_a
 
       private

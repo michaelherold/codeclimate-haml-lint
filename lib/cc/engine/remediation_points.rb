@@ -79,7 +79,7 @@ module CC
       #   points.to_json
       #
       # @api public
-      # @return [String]
+      # @return [String] a JSON document of the remediation points
       def to_json(*args)
         if points
           points.to_json(*args)

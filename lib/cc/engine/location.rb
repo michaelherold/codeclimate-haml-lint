@@ -83,7 +83,7 @@ module CC
       #   location.to_json  #=> '{"path": "a.haml", "lines": {"begin": 42, "end": 42"}}'
       #
       # @api public
-      # @return [String]
+      # @return [String] a JSON document of the location
       def to_json(*args)
         to_h.to_json(*args)
       end

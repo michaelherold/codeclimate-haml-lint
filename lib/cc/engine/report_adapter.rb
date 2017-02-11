@@ -28,6 +28,8 @@ module CC
       end
 
       # @!method each
+      #   Enumerates through the issues in a report
+      #
       #   @example
       #     adapter = CC::Engine::ReportAdapter.new(
       #       report: HamlLint::Report.new([], %w(a.haml)),
@@ -38,7 +40,7 @@ module CC
       #
       #   @api public
       #   @see Array#each
-      #   @return [Enumerator]
+      #   @return [Enumerator] an enumerator of the issues in the report
       def_delegators :issues, :each
 
       private
