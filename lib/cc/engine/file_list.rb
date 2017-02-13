@@ -6,7 +6,7 @@ module CC
   module Engine
     # Gathers a list of files to analyze with the engine
     class FileList
-      extend Enumerable
+      include Enumerable
       extend Forwardable
 
       # Instantiates a new FileList
@@ -43,21 +43,7 @@ module CC
       #   @api public
       #   @see Array#each
       #   @return [Enumerator] an enumerator of the files in the list
-      #
-      # @!method to_a
-      #   Flattens the file list into an array
-      #
-      #   @example
-      #     CC::Engine::FileList.new(
-      #       root: "/tmp",
-      #       engine_config: CC::Engine::Configuration.new,
-      #       linter_config: {}
-      #     ).to_a  #=> ["a.haml"]
-      #
-      #   @api public
-      #   @see Array#to_a
-      #   @return [Array] an array of the files in the list
-      def_delegators :filtered_files, :each, :to_a
+      def_delegator :filtered_files, :each
 
       private
 
