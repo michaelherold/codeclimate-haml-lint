@@ -51,7 +51,7 @@ GEM
       yard (>= 0.7.0)
     haml (4.0.7)
       tilt
-    haml_lint (0.20.0)
+    haml_lint (0.21.0)
       haml (~> 4.0)
       rake (>= 10, < 13)
       rubocop (>= 0.47.0)
@@ -178,7 +178,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   guard-yard
-  haml_lint (~> 0.20.0)
+  haml_lint (~> 0.21.0)
   inch
   mutant-rspec (~> 0.8)
   parser (~> 2.3.3.1)
