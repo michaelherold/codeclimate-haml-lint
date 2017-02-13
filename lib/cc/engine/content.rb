@@ -44,6 +44,28 @@ module CC
         !body
       end
 
+      # Converts the contents into a Hash
+      #
+      # @example
+      #   CC::Engine::Content.new("AltText").to_h  #=> {body: "..."}
+      #
+      # @api public
+      # @return [Hash]
+      def to_h
+        {body: body}
+      end
+
+      # Converts the contents into a JSON document
+      #
+      # @example
+      #   CC::Engine::Content.new("AltText").to_h  #=> '{"body": '...'}"
+      #
+      # @api public
+      # @return [String] the contents matching the Code Climate spec for contents
+      def to_json(*args)
+        to_h.to_json(*args)
+      end
+
       private
 
       # The path to the content file

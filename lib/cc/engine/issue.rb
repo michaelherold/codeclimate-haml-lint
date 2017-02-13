@@ -203,7 +203,7 @@ module CC
       #     location: <#CC::Engine::Location>,
       #     severity: "critical",
       #     categories: ["Compatibility"],
-      #     content: "...",
+      #     content: {body: "..."},
       #     fingerprint: <#CC::Engine::Fingerprint>,
       #     remediation_points: 50000
       #   }
@@ -219,7 +219,7 @@ module CC
           severity: severity,
         }.tap do |hash|
           hash[:categories] = categories unless categories.empty?
-          hash[:content] = content.body unless content.empty?
+          hash[:content] = content unless content.empty?
           hash[:fingerprint] = fingerprint unless fingerprint.empty?
           hash[:remediation_points] = points unless points.empty?
         end
