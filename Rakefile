@@ -32,7 +32,8 @@ end
 
 begin
   require "yardstick/rake/measurement"
-  Yardstick::Rake::Measurement.new(:yardstick_measure) do |measurement|
+  options = YAML.load_file("config/yardstick.yml")
+  Yardstick::Rake::Measurement.new(:yardstick_measure, options) do |measurement|
     measurement.output = "coverage/docs.txt"
   end
 rescue LoadError
@@ -40,7 +41,8 @@ end
 
 begin
   require "yardstick/rake/verify"
-  Yardstick::Rake::Verify.new(:yardstick_verify) do |verify|
+  options = YAML.load_file("config/yardstick.yml")
+  Yardstick::Rake::Verify.new(:yardstick_verify, options) do |verify|
     verify.threshold = 100
   end
 rescue LoadError

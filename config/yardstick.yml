@@ -1,0 +1,15 @@
+---
+threshold: 100
+rules:
+  ApiTag::Inclusion:
+    exclude:
+      - CC::Engine::FileList#each
+  ApiTag::Presence:
+    exclude:
+      - CC::Engine::FileList#each
+  ExampleTag:
+    exclude:
+      - CC::Engine::FileList#each
+  ReturnTag:
+    exclude:
+      - CC::Engine::FileList#each
