@@ -93,6 +93,16 @@ module CC
       # @return [String]
       attr_reader :root
 
+      # Instantiates the reporter to generate the HamlLint report
+      #
+      # @api private
+      # @return [HamlLint::Reporter::HashReporter]
+      def reporter
+        @reporter ||= ::HamlLint::Reporter::HashReporter.new(
+          ::HamlLint::Logger.new(StringIO.new)
+        )
+      end
+
       # The options to pass to the HamlLint runner
       #
       # @api private
@@ -103,6 +113,7 @@ module CC
           excluded_linters: [],
           files: [full_path],
           included_linters: linter_config["linters"].keys,
+          reporter: reporter,
         }
       end
 

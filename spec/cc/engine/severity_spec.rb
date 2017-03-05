@@ -2,10 +2,12 @@ require "cc/engine/severity"
 
 RSpec.describe CC::Engine::Severity do
   it "maps HamlLint errors to critical" do
-    expect(described_class.from_haml_lint("error")).to eq("critical")
+    severity = ::HamlLint::Severity.new(:error)
+    expect(described_class.from_haml_lint(severity)).to eq("critical")
   end
 
   it "maps HamlLint warnings to normal" do
-    expect(described_class.from_haml_lint("warning")).to eq("normal")
+    severity = ::HamlLint::Severity.new(:warning)
+    expect(described_class.from_haml_lint(severity)).to eq("normal")
   end
 end

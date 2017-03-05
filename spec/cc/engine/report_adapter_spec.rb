@@ -4,7 +4,12 @@ require "cc/engine/report_adapter"
 RSpec.describe CC::Engine::ReportAdapter do
   include Fakes
 
-  let(:report) { HamlLint::Report.new(fake_lints, []) }
+  let(:report) { HamlLint::Report.new(fake_lints, [], reporter: reporter) }
+  let(:reporter) do
+    HamlLint::Reporter::HashReporter.new(
+      HamlLint::Logger.new(StringIO.new)
+    )
+  end
 
   subject(:adapter) { described_class.new(report: report, root: "") }
 
@@ -18,7 +23,7 @@ RSpec.describe CC::Engine::ReportAdapter do
           location: {line: 724},
           message: "Description of lint 2",
           path: "other-filename.haml",
-          severity: "error"
+          severity: HamlLint::Severity.new(:error)
         )
       )
       expect(subject.last).to eq(
@@ -27,7 +32,7 @@ RSpec.describe CC::Engine::ReportAdapter do
           location: {line: 502},
           message: "Description of lint 1",
           path: "some-filename.haml",
-          severity: "warning"
+          severity: HamlLint::Severity.new(:warning)
         )
       )
     end

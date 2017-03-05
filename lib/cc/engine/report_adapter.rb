@@ -68,22 +68,13 @@ module CC
         end
       end
 
-      # Instantiates the logger to use in the report
-      #
-      # @api private
-      # @param [IO] io the output for the +HamlLint::Logger+
-      # @return [HamlLint::Logger]
-      def log(io)
-        ::HamlLint::Logger.new(io)
-      end
-
       # Converts the HamlLint JSON output to a list of issues
       #
       # @api private
       # @return [Array<CC::Engine::Issue>]
       def issues
-        @offenses ||=
-          JSON.parse(output, symbolize_names: true).
+        @issues ||=
+          output.
           fetch(:files, []).
           flat_map { |file| create_issues_from(file) }
       end
@@ -93,30 +84,7 @@ module CC
       # @api private
       # @return [String]
       def output
-        @output ||=
-          begin
-            output = StringIO.new
-            print_report(output)
-            output.string
-          end
-      end
-
-      # Prints the report to the given IO
-      #
-      # @api private
-      # @param [IO] io the output for the +HamlLint::Reporter::JsonReporter+
-      # @return [void]
-      def print_report(io)
-        reporter(io).display_report(report)
-      end
-
-      # Instantiates the reporter to generate the HamlLint report
-      #
-      # @api private
-      # @param [IO] io the output for the +HamlLint::Reporter::JsonReporter+
-      # @return [HamlLint::Reporter::JsonReporter]
-      def reporter(io)
-        ::HamlLint::Reporter::JsonReporter.new(log(io))
+        @output ||= report.display
       end
     end
   end

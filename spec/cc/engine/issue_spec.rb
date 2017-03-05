@@ -2,7 +2,7 @@ require "cc/engine/issue"
 require "cc/engine/location"
 
 RSpec.describe CC::Engine::Issue do
-  let(:severity) { "warning" }
+  let(:severity) { ::HamlLint::Severity.new(:warning) }
 
   subject(:offense) do
     described_class.new(
@@ -28,15 +28,9 @@ RSpec.describe CC::Engine::Issue do
     end
 
     context "when it is an error" do
-      let(:severity) { "error" }
+      let(:severity) { ::HamlLint::Severity.new(:error) }
 
       it { is_expected.to eq("critical") }
-    end
-
-    context "when it is something unknown" do
-      let(:severity) { "help" }
-
-      it { is_expected.to eq("info") }
     end
   end
 
