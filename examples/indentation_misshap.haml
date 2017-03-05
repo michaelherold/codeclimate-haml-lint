@@ -1,0 +1,17 @@
+.migration_requests
+  %h1 Reassign Migration Request for #{admin_link_to @migration_request_site.assigned_admin_user}
+  %h3 Site: #{@migration_request_site.url}
+
+- if @site.present?
+  .row-fluid
+    .span6
+      .datacard
+        .row-fluid
+          .span12
+            %label Current site
+            .data= @site.name
+    .span6
+      = admin_search reassign_admin_migration_request_path(@site.id), action_query: @query
+
+.transfer-table
+	= render "admin/sites/table", sites: @sites, link_method: ->(s) { link_to "Reassign", reassign_post_admin_migration_request_set_migration_request_site_path(@migration_request_set, @migration_request_site, site_id: s.id), method: :post, class: "tiny-button", data: {confirm: "Are you sure you want to reassign this migration to #{s.name}?"} }

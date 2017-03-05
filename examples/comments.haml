@@ -1,0 +1,12 @@
+-#
+  haml-lint:disable AltText
+  haml-lint:disable LineLength
+%img{ src: "test.png" }
+%div
+  %img
+-# haml-lint:enable AltText
+%img{ src: "test.png" }
+%div
+  -# haml-lint:disable AltText
+  %img{ src: "test.png" }
+%img{ src: "test.png" }
