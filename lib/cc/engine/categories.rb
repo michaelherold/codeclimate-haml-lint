@@ -27,7 +27,7 @@ module CC
         "MultilinePipe" => "Complexity",
         "MultilineScript" => "Complexity",
         "ObjectReferenceAttributes" => "Clarity",
-        "RepeatedIds" => "Bug Risk",
+        "RepeatedId" => "Bug Risk",
         "RuboCop" => "Style",
         "RubyComments" => "Bug Risk",
         "SpaceBeforeScript" => "Style",

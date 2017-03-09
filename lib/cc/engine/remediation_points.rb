@@ -30,7 +30,7 @@ module CC
         "MultilinePipe" => DEFAULT_POINTS * 2,
         "MultilineScript" => DEFAULT_POINTS,
         "ObjectReferenceAttributes" => DEFAULT_POINTS * 2,
-        "RepeatedIds" => DEFAULT_POINTS * 2,
+        "RepeatedId" => DEFAULT_POINTS * 2,
         "RuboCop" => DEFAULT_POINTS * 5,
         "RubyComments" => DEFAULT_POINTS,
         "SpaceBeforeScript" => DEFAULT_POINTS,
