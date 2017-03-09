@@ -35,7 +35,7 @@ module CC
         "RubyComments" => DEFAULT_POINTS,
         "SpaceBeforeScript" => DEFAULT_POINTS,
         "SpaceInsideHashAttributes" => DEFAULT_POINTS,
-        "Syntax" => DEFAULT_POINT,
+        "Syntax" => DEFAULT_POINTS,
         "TagName" => DEFAULT_POINTS,
         "TrailingWhitespace" => DEFAULT_POINTS,
         "UnnecessaryInterpolation" => DEFAULT_POINTS,
