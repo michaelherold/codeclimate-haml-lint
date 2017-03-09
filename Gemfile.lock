@@ -1,15 +1,3 @@
-GIT
-  remote: https://github.com/brigade/haml-lint.git
-  revision: 8f48c3f1c41d7fe0db6a6ceeaebee95be00c17b0
-  ref: 8f48c3f1c41d7fe0db6a6ceeaebee95be00c17b0
-  specs:
-    haml_lint (0.21.0)
-      haml (>= 4.0, < 5.1)
-      rainbow
-      rake (>= 10, < 13)
-      rubocop (>= 0.47.0)
-      sysexits (~> 1.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +51,12 @@ GEM
       yard (>= 0.7.0)
     haml (4.0.7)
       tilt
+    haml_lint (0.22.1)
+      haml (>= 4.0, < 5.1)
+      rainbow
+      rake (>= 10, < 13)
+      rubocop (>= 0.47.0)
+      sysexits (~> 1.1)
     ice_nine (0.11.2)
     inch (0.7.1)
       pry
@@ -185,7 +179,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   guard-yard
-  haml_lint!
+  haml_lint (~> 0.22.1)
   inch
   mutant-rspec (~> 0.8)
   parser (~> 2.3.3.1)
