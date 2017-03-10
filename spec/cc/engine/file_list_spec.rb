@@ -6,7 +6,7 @@ RSpec.describe CC::Engine::FileList do
 
   let(:engine_config) { CC::Engine::Configuration.new }
   let(:linter_config) { HamlLint::ConfigurationLoader.default_configuration }
-  let(:root) { Dir.mktmpdir }
+  let(:root) { examples_path("file_list") }
 
   around(:each) do |example|
     in_directory(root) do
@@ -14,7 +14,7 @@ RSpec.describe CC::Engine::FileList do
     end
   end
 
-  subject(:file_list) do
+  let(:file_list) do
     described_class.new(
       root: root,
       engine_config: engine_config,
@@ -22,21 +22,15 @@ RSpec.describe CC::Engine::FileList do
     )
   end
 
+  subject(:file_names) { file_list.to_a }
+
   context "without any engine configuration" do
     it "uses the default include path" do
-      a_path = create_source_file("a.html.haml", "%p Hello, world!")
-      create_source_file("not_haml.html.erb", "<p>Hello, world!</p>")
+      a_path = example_file("a.html.haml")
+      not_haml_path = example_file("not_haml.html.erb")
 
-      expect(subject.to_a).to eq([a_path])
-    end
-
-    it "doesn't include files outside the root" do
-      in_directory(Dir.mktmpdir) do
-        create_source_file("a.html.haml", "%p Hello, world!")
-      end
-      b_path = create_source_file("b.html.haml", "%p Hello, world!")
-
-      expect(subject.to_a).to eq([b_path])
+      expect(subject).to include(a_path)
+      expect(subject).not_to include(not_haml_path)
     end
   end
 
@@ -44,24 +38,25 @@ RSpec.describe CC::Engine::FileList do
     let(:engine_config) { CC::Engine::Configuration.new("include_paths" => %w(src/)) }
 
     it "respects the engine configuration's include_paths" do
-      create_source_file("a.html.haml", "%p Hello, world!")
-      b_path = create_source_file("src/b.html.haml", "%p Hello, world!")
+      a_path = example_file("a.html.haml")
+      b_path = example_file("src/b.html.haml")
 
-      expect(subject.to_a).to eq([b_path])
+      expect(subject).to include(b_path)
+      expect(subject).not_to include(a_path)
     end
   end
 
   context "with linter configuration" do
-    let(:config_file) do
-      create_source_file(".haml-lint.yml", "exclude:\n  - '**/src/b.haml'")
-    end
+    let(:config_file) { example_file(".haml-lint.yml") }
     let(:linter_config) { HamlLint::ConfigurationLoader.load_file(config_file) }
+    let(:root) { examples_path("file_list_with_config") }
 
     it "respects haml-lint.yml" do
-      a_path = create_source_file("a.html.haml", "%p Hello, world!")
-      create_source_file("src/b.haml", "%p Hello, world!")
+      a_path = example_file("a.html.haml")
+      b_path = example_file("src/b.haml")
 
-      expect(subject.to_a).to eq([a_path])
+      expect(subject).to include(a_path)
+      expect(subject).not_to include(b_path)
     end
   end
 end

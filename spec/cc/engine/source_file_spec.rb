@@ -6,7 +6,7 @@ RSpec.describe CC::Engine::SourceFile do
 
   let(:io) { StringIO.new }
   let(:linter_config) { HamlLint::ConfigurationLoader.default_configuration }
-  let(:root) { Dir.mktmpdir }
+  let(:root) { examples_path("source_file") }
 
   around(:each) do |example|
     in_directory(root) do
@@ -24,7 +24,7 @@ RSpec.describe CC::Engine::SourceFile do
   end
 
   describe "#path" do
-    let(:path) { create_source_file("a.haml", "%p Hello, world!") }
+    let(:path) { example_file("a.haml") }
 
     subject { source_file.path }
 
@@ -32,9 +32,7 @@ RSpec.describe CC::Engine::SourceFile do
   end
 
   describe "#process" do
-    let(:path) do
-      create_source_file("a.haml", %(%p{ id: "hello"} Hello, world!))
-    end
+    let(:path) { example_file("b.haml") }
 
     subject { source_file.process }
 
