@@ -23,10 +23,10 @@ Awesome! We strive to be welcoming to everyone. Check out the [contributing guid
 
 For help with Haml-Lint, [check out their documentation].
 
-If you're running into a Code Climate issue, first check out our [engine documentation] and look over any existing [issues], as your question may have already been covered. If not, please [open an issue] and we'll see what we can do to help.
+If you're running into a Code Climate issue, first check out our [engine documentation] and look over any existing [issues], as your question may have already been covered. If not, please [open an issue][issues] and we'll see what we can do to help.
 
 [check out their documentation]: https://github.com/brigade/haml-lint
-[open an issue]: https://github.com/michaelherold/codeclimate-haml_lint/issues
+[issues]: https://github.com/michaelherold/codeclimate-haml_lint/issues
 
 ## Installation
 
