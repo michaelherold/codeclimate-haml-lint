@@ -56,6 +56,23 @@ RSpec.describe CC::Engine::FileList do
         expect(subject).not_to include(a_path)
       end
     end
+
+    context "that has both include_paths and exclude_paths" do
+      let(:engine_config) do
+        CC::Engine::Configuration.new(
+          "exclude_paths" => %w(src/b.html.haml),
+          "include_paths" => %w(src/)
+        )
+      end
+
+      it "prefers the exclude_paths" do
+        a_path = example_file("a.html.haml")
+        b_path = example_file("src/b.html.haml")
+
+        expect(subject).not_to include(b_path)
+        expect(subject).not_to include(a_path)
+      end
+    end
   end
 
   context "with linter configuration" do

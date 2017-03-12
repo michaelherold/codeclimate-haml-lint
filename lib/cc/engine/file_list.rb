@@ -26,6 +26,7 @@ module CC
       #   configuration loaded from +.haml-lint.yml+
       def initialize(root:, engine_config:, linter_config:)
         @root = root
+        @exclude_paths = paths_from_root(engine_config.exclude_paths)
         @include_paths = engine_config.include_paths
         @linter_config = linter_config
       end
@@ -46,6 +47,12 @@ module CC
       def_delegator :filtered_files, :each
 
       private
+
+      # The paths to exclude within the root
+      #
+      # @api private
+      # @return [Array<String>]
+      attr_reader :exclude_paths
 
       # The paths to include within the root
       #
@@ -70,9 +77,7 @@ module CC
       # @api private
       # @return [Array<String>]
       def absolute_include_paths
-        Dir.chdir(root) do
-          include_paths.map { |path| Pathname.new(path).realpath.to_s }.compact
-        end
+        paths_from_root(include_paths)
       end
 
       # Lists the absolute paths to every file in the lists
@@ -86,7 +91,18 @@ module CC
           elsif File.exist?(path)
             runner.send(:extract_applicable_files, linter_config, files: [path])
           end
-        end.compact
+        end.reject { |path| exclude_paths.include?(path) }.compact
+      end
+
+      # Converts the paths to absolute paths from the root
+      #
+      # @api private
+      # @param [Array<String>] paths the relative paths to convert
+      # @return [Array<String>]
+      def paths_from_root(paths)
+        Dir.chdir(root) do
+          paths.map { |path| Pathname.new(path).realpath.to_s }.compact
+        end
       end
 
       # A +haml_lint+ runner used to filter out possible files
