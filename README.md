@@ -87,9 +87,13 @@ Most of the configuration lives under the `engines.haml_lint` key. The options a
 
 ## Versioning
 
-This engine aims to adhere to [Semantic Versioning 2.0.0][semver]. Violations of this scheme should be reported as bugs. Specifically, if a minor or patch version is released that breaks backward compatibility, that version should be immediately yanked and/or a new version should be immediately released that restores compatibility. Breaking changes to the public API will only be introduced with new major versions.
-
-[semver]: http://semver.org/spec/v2.0.0.html
+This engine is versioned based on the versioning scheme of Haml-Lint. It uses
+the version of the Haml-Lint gem that is installed as the base version and then
+adds a build number. For example, the first time the engine is built and
+released for the `0.23.1` version of HamlLint, the engine's version is
+`0.23.1-1`. If there are any bugs that are fixed in the engine without updating
+the Haml-Lint version, the build number will be incremented (e.g. to
+`0.23.1-2`).
 
 ## License
 
