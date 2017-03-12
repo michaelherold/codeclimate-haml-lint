@@ -73,6 +73,20 @@ RSpec.describe CC::Engine::FileList do
         expect(subject).not_to include(a_path)
       end
     end
+
+    context "that has a file in include_paths that should not be included" do
+      let(:engine_config) do
+        CC::Engine::Configuration.new(
+          "include_paths" => %w(not_haml.html.erb)
+        )
+      end
+
+      it "does not include the file" do
+        not_haml_path = example_file("not_haml.html.erb")
+
+        expect(subject).not_to include(not_haml_path)
+      end
+    end
   end
 
   context "with linter configuration" do

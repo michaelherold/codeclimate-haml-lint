@@ -9,6 +9,12 @@ module CC
       include Enumerable
       extend Forwardable
 
+      # The extension to filter Haml files by.
+      #
+      # @api private
+      # @return [String]
+      HAML_EXTENSION = ".haml".freeze
+
       # Instantiates a new FileList
       #
       # @example
@@ -32,7 +38,7 @@ module CC
       end
 
       # @!method each
-      #  Enumerates through the file list
+      #   Enumerates through the file list
       #
       #   @example
       #     CC::Engine::FileList.new(
@@ -85,13 +91,23 @@ module CC
       # @api private
       # @return [Array<String>]
       def filtered_files
-        absolute_include_paths.flat_map do |path|
-          if Dir.exist?(path)
-            runner.send(:extract_applicable_files, linter_config, files: [path])
-          elsif File.exist?(path)
-            runner.send(:extract_applicable_files, linter_config, files: [path])
-          end
-        end.reject { |path| exclude_paths.include?(path) }.compact
+        absolute_include_paths.
+          flat_map { |path| haml_files_from_path(path) }.
+          reject { |path| exclude_paths.include?(path) }
+      end
+
+      # Extracts Haml files from a path
+      #
+      # @api private
+      # @return [Array<String>]
+      def haml_files_from_path(path)
+        if Dir.exist?(path) || File.exist?(path)
+          runner.
+            send(:extract_applicable_files, linter_config, files: [path]).
+            select { |file| file.end_with?(HAML_EXTENSION) }
+        else
+          []
+        end
       end
 
       # Converts the paths to absolute paths from the root
