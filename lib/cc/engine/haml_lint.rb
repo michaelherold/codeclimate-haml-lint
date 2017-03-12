@@ -83,7 +83,7 @@ module CC
         if engine_config.config
           ::HamlLint::ConfigurationLoader.load_file(engine_config.config)
         else
-          ::HamlLint::ConfigurationLoader.default_configuration
+          ::HamlLint::ConfigurationLoader.load_applicable_config
         end
       end
 
