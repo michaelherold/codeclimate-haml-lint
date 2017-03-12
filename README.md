@@ -66,9 +66,9 @@ engines:
     config:
       file: my_custom_haml_lint.yml
     checks:
-      AltText:
+      HamlLint/AltText:
         enabled: false
-      RuboCop:
+      HamlLint/RuboCop:
         include:
           - lib/project_name/**/*.rb
         exclude:

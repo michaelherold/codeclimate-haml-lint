@@ -177,7 +177,7 @@ module CC
         ::HamlLint::Configuration.new(
           {"exclude" => exclude_paths, "linters" => {}}.tap do |config|
             checks.each do |linter, attrs|
-              config["linters"][linter] = attrs
+              config["linters"][linter.sub(%r{^HamlLint/}, "")] = attrs
             end
           end
         )
