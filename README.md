@@ -23,31 +23,30 @@ Awesome! We strive to be welcoming to everyone. Check out the [contributing guid
 
 For help with Haml-Lint, [check out their documentation].
 
-If you're running into a Code Climate issue, first check out our [engine documentation] and look over any existing [issues], as your question may have already been covered. If not, please [open an issue][issues] and we'll see what we can do to help.
+If you're running into a Code Climate issue, first check out our [engine documentation][#usage] and look over any existing [issues][issues], as your question may have already been covered. If not, please [open an issue][open-issue] and we'll see what we can do to help.
 
 [check out their documentation]: https://github.com/brigade/haml-lint
 [issues]: https://github.com/michaelherold/codeclimate-haml_lint/issues
+[open-issue]: https://github.com/michaelherold/codeclimate-haml_lint/issues/new
 
 ## Installation
 
-Since this isn't a publicly released engine yet, you will have to build the engine from this repository. You will need the `git` and `make` commands, as well as a modern version of Ruby (2.3+) and the `bundler` gem.
+Since this isn't a publicly released engine yet, you will have to build the engine from this repository. You will need the Code Climate CLI installed, as well as the `git` and `make` commands.
 
 1. If you haven't already, [install the Code Climate CLI].
 2. If you do not have Git, install it.
 3. If you do not have `make`, install it. On a Mac, you can get it with XCode. On Linux, you can get it in your package manager (the `build-essential` package in Ubuntu or `base-devel` package on Arch linux). On Windows, you probably need Cygwin or the Linux Subsystem for Windows.
-4. If you do not have Ruby 2.3+ installed, check out [ruby-install] or [rvm].
-5. If you do not have Bundler installed, run `gem install bundler`.
-6. Check out this repository with Git by running `git clone https://github.com/michaelherold/codeclimate-haml_lint.git`.
-7. Go to the directory where you cloned the repository.
-8. Install all of the Ruby dependencies with `bundle install`.
-9. Make the engine's Docker container with `make`.
+4. Make the engine's Docker container with `make`.
 
-You should now be able to use the engine through the Code Climate CLI. If the container fails to build, [file an issue].
+If the container fails to build, [file an issue][open-issue].
 
-[file an issue]: https://github.com/michaelherold/codeclimate-haml_lint/issues
+You should now be able to use the engine through the Code Climate CLI as
+a development-level engine. To use it on your project, first navigate to your
+project's directory. Then use the following command:
+
+    $ codeclimate analyze -e haml_lint --dev
+
 [install the Code Climate CLI]: https://github.com/codeclimate/codeclimate
-[ruby-install]: https://github.com/postmodern/ruby-install
-[rvm]: https://github.com/rvm/rvm
 
 ## Usage
 
