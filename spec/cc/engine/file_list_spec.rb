@@ -44,6 +44,18 @@ RSpec.describe CC::Engine::FileList do
       expect(subject).to include(b_path)
       expect(subject).not_to include(a_path)
     end
+
+    context "that has a single file as its include_paths" do
+      let(:engine_config) { CC::Engine::Configuration.new("include_paths" => %w(src/b.html.haml)) }
+
+      it "respects the engine configuration's include_paths" do
+        a_path = example_file("a.html.haml")
+        b_path = example_file("src/b.html.haml")
+
+        expect(subject).to include(b_path)
+        expect(subject).not_to include(a_path)
+      end
+    end
   end
 
   context "with linter configuration" do

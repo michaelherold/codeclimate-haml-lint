@@ -83,6 +83,8 @@ module CC
         absolute_include_paths.flat_map do |path|
           if Dir.exist?(path)
             runner.send(:extract_applicable_files, linter_config, files: [path])
+          elsif File.exist?(path)
+            runner.send(:extract_applicable_files, linter_config, files: [path])
           end
         end.compact
       end
