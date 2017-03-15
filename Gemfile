@@ -5,7 +5,9 @@ source "https://rubygems.org"
 gem "dry-equalizer", require: false
 gem "haml_lint", "0.23.1"
 gem "parser", "~> 2.3.3.1", require: false
-gem "pry", require: false
+
+# RuboCop plugins
+gem "rubocop-rspec", require: false
 
 group :development do
   gem "guard-bundler"
@@ -14,6 +16,7 @@ group :development do
   gem "guard-rubocop"
   gem "guard-yard"
   gem "mutant-rspec", "~> 0.8"
+  gem "pry", require: false
 end
 
 group :ci do
