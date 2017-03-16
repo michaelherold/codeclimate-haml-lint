@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "dry-equalizer", require: false
-gem "haml_lint", "0.23.1"
+gem "haml_lint", "0.23.2"
 gem "parser", "~> 2.3.3.1", require: false
 
 # RuboCop plugins
