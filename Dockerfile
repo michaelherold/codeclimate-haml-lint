@@ -3,19 +3,19 @@ FROM ruby:2.3-alpine
 MAINTAINER Michael J. Herold
 
 WORKDIR /usr/src/app
-COPY Gemfile /usr/src/app/
-COPY Gemfile.lock /usr/src/app/
+COPY Gemfile* ./
 
 RUN bundle install --jobs 4 --without development ci && \
     rm -rf /usr/share/ri && \
     adduser -u 9000 -D app
 
-COPY . /usr/src/app
-RUN chown -R app:app /usr/src/app
+COPY engine.json /
+COPY . ./
+RUN chown -R app:app ./
 
 USER app
 
 VOLUME /code
 WORKDIR /code
 
-CMD ["/usr/src/app/bin/codeclimate-haml_lint"]
+CMD ["/usr/src/app/bin/codeclimate-haml-lint"]
