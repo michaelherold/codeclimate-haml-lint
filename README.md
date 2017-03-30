@@ -1,12 +1,12 @@
 # Code Climate Haml-Lint Engine
 
-[![Build Status](https://travis-ci.org/michaelherold/codeclimate-haml_lint.svg)][travis]
-[![Code Climate](https://codeclimate.com/github/michaelherold/codeclimate-haml_lint/badges/gpa.svg)][codeclimate]
-[![Inline docs](http://inch-ci.org/github/michaelherold/codeclimate-haml_lint.svg?branch=master)][inch]
+[![Build Status](https://travis-ci.org/michaelherold/codeclimate-haml-lint.svg)][travis]
+[![Code Climate](https://codeclimate.com/github/michaelherold/codeclimate-haml-lint/badges/gpa.svg)][codeclimate]
+[![Inline docs](http://inch-ci.org/github/michaelherold/codeclimate-haml-lint.svg?branch=master)][inch]
 
-[codeclimate]: https://codeclimate.com/github/michaelherold/codeclimate-haml_lint
-[inch]: http://inch-ci.org/github/michaelherold/codeclimate-haml_lint
-[travis]: https://travis-ci.org/michaelherold/codeclimate-haml_lint
+[codeclimate]: https://codeclimate.com/github/michaelherold/codeclimate-haml-lint
+[inch]: http://inch-ci.org/github/michaelherold/codeclimate-haml-lint
+[travis]: https://travis-ci.org/michaelherold/codeclimate-haml-lint
 
 Have you ever wanted to know exactly how good you are at writing consistent Haml? Well look no more! By using this Code Climate engine, you can harness the power of [Haml-Lint] to score your code.
 
@@ -16,8 +16,8 @@ Have you ever wanted to know exactly how good you are at writing consistent Haml
 
 Awesome! We strive to be welcoming to everyone. Check out the [contributing guide] and make sure to read our [code of conduct].
 
-[contributing guide]: https://github.com/michaelherold/codeclimate-haml_lint/blob/master/CONTRIBUTING.md
-[code of conduct]: https://github.com/michaelherold/codeclimate-haml_lint/blob/master/CODE_OF_CONDUCT.md
+[contributing guide]: https://github.com/michaelherold/codeclimate-haml-lint/blob/master/CONTRIBUTING.md
+[code of conduct]: https://github.com/michaelherold/codeclimate-haml-lint/blob/master/CODE_OF_CONDUCT.md
 
 ## Need Some Help?
 
@@ -26,8 +26,8 @@ For help with Haml-Lint, [check out their documentation].
 If you're running into a Code Climate issue, first check out our [engine documentation][#usage] and look over any existing [issues][issues], as your question may have already been covered. If not, please [open an issue][open-issue] and we'll see what we can do to help.
 
 [check out their documentation]: https://github.com/brigade/haml-lint
-[issues]: https://github.com/michaelherold/codeclimate-haml_lint/issues
-[open-issue]: https://github.com/michaelherold/codeclimate-haml_lint/issues/new
+[issues]: https://github.com/michaelherold/codeclimate-haml-lint/issues
+[open-issue]: https://github.com/michaelherold/codeclimate-haml-lint/issues/new
 
 ## Installation
 
@@ -44,7 +44,7 @@ You should now be able to use the engine through the Code Climate CLI as
 a development-level engine. To use it on your project, first navigate to your
 project's directory. Then use the following command:
 
-    $ codeclimate analyze -e haml_lint --dev
+    $ codeclimate analyze -e haml-lint --dev
 
 [install the Code Climate CLI]: https://github.com/codeclimate/codeclimate
 

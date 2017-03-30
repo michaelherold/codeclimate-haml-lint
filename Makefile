@@ -1,6 +1,6 @@
 .PHONY: image test
 
-IMAGE_NAME ?= codeclimate/codeclimate-haml_lint
+IMAGE_NAME ?= codeclimate/codeclimate-haml-lint
 
 image:
 	docker build --rm -t ${IMAGE_NAME} .

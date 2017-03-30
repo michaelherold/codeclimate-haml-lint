@@ -1,5 +1,5 @@
 {
-  "name": "haml_lint",
+  "name": "haml-lint",
   "description": "Checks your Haml files for style and quality violations.",
   "maintainer": {
     "name": "Michael J. Herold",
