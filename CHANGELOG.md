@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/michaelherold/codeclimate-haml-lint)
+## [0.24.0-1](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.24.0-1)
 
 ### Added
 
