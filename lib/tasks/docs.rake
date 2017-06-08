@@ -58,18 +58,15 @@ module ExtractDocumentation
           block[:body] << line
           in_documentation_block = true
         end
+      elsif in_documentation_block
+        block[:body] << line
       else
-        if in_documentation_block
-          block[:body] << line
-        else
-          raise "uh oh!"
-        end
+        fail "uh oh!"
       end
     end
 
     documentation_blocks
   end
-
 
   # Writes the documentation files to the config/contents directory
   #
