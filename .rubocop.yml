@@ -9,6 +9,22 @@ AllCops:
     - "db/schema.rb"
   TargetRubyVersion: 2.1
 
+Layout/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
+  Enabled: true
+  EnforcedStyle: trailing
+  SupportedStyles:
+  - leading
+  - trailing
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStyles:
+    - space
+    - no_space
+
 Style/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
   Enabled: false
@@ -37,15 +53,6 @@ Style/CollectionMethods:
 Style/Documentation:
   Description: Document classes and non-namespace modules.
   Enabled: false
-
-Style/DotPosition:
-  Description: Checks the position of the dot in multi-line method calls.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
-  Enabled: true
-  EnforcedStyle: trailing
-  SupportedStyles:
-  - leading
-  - trailing
 
 Style/DoubleNegation:
   Description: Checks for uses of double negation (!!).
@@ -181,13 +188,6 @@ Style/SingleLineMethods:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-single-line-methods
   Enabled: false
   AllowIfMethodIsEmpty: true
-
-Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-  EnforcedStyleForEmptyBraces: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
 Style/SpecialGlobalVars:
   Description: Avoid Perl-style global variables.
