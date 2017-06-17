@@ -1,6 +1,6 @@
 FROM ruby:2.3-alpine
 
-MAINTAINER Michael J. Herold
+LABEL maintainer "Michael J. Herold <michael@michaeljherold.com>"
 
 WORKDIR /usr/src/app
 COPY Gemfile* ./
