@@ -92,7 +92,7 @@ module CC
       # @api private
       # @return [String]
       def category
-        CATEGORIES[linter]
+        CATEGORIES.fetch(linter, "Style")
       end
     end
   end

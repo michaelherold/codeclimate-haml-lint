@@ -13,7 +13,7 @@ RSpec.describe CC::Engine::Categories do
     context "for an unknown linter" do
       let(:linter) { "UnknownLinter" }
 
-      it { is_expected.to eq(nil) }
+      it { is_expected.to eq('["Style"]') }
     end
   end
 end
