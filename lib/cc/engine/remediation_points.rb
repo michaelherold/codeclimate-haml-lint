@@ -24,6 +24,7 @@ module CC
         "IdNames" => DEFAULT_POINTS * 5,
         "ImplicitDiv" => DEFAULT_POINTS,
         "Indentation" => DEFAULT_POINTS,
+        "InlineStyles" => DEFAULT_POINTS * 2,
         "InstanceVariables" => DEFAULT_POINTS * 3,
         "LeadingCommentSpace" => DEFAULT_POINTS,
         "LineLength" => DEFAULT_POINTS,
@@ -40,6 +41,7 @@ module CC
         "TrailingWhitespace" => DEFAULT_POINTS,
         "UnnecessaryInterpolation" => DEFAULT_POINTS,
         "UnnecessaryStringOutput" => DEFAULT_POINTS,
+        "ViewLength" => DEFAULT_POINTS * 4,
       }.freeze
 
       # Instantiates a remediate points value for a linter
