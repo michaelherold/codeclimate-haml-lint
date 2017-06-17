@@ -41,6 +41,18 @@ module CC
         "ViewLength" => "Complexity",
       }.freeze
 
+      # Lists the possible categories
+      POSSIBLE = [
+        "Bug Risk",
+        "Clarity",
+        "Compatibility",
+        "Complexity",
+        "Duplication",
+        "Performance",
+        "Security",
+        "Style",
+      ].freeze
+
       # Instantiates a set of categories for a linter
       #
       # @example

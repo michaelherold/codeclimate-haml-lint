@@ -5,6 +5,15 @@ RSpec.describe CC::Engine::RemediationPoints do
 
   subject(:remediation_points) { described_class.new(linter) }
 
+  it "is exhaustive of all linters" do
+    HamlLint::LinterRegistry.
+      linters.
+      map { |klass| klass.to_s.split("::").last }.
+      each do |linter|
+        expect(described_class::POINTS).to have_key(linter)
+      end
+  end
+
   describe "#empty?" do
     subject { remediation_points.empty? }
 
