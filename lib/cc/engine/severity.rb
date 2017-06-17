@@ -9,8 +9,8 @@ module CC
       # @api private
       # @return [Hash]
       HAML_LINT_TO_CODE_CLIMATE = {
-        error: "critical",
-        warning: "normal",
+        error: "minor",
+        warning: "info",
       }.freeze
 
       # Converts the HamlLint severity ontology into the Code Climate one
