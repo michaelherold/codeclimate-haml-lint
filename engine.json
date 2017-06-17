@@ -6,6 +6,6 @@
     "email": "michael@michaeljherold.com"
   },
   "languages": ["Haml"],
-  "version": "v0.26.0-2",
-  "spec_version": "0.3.0"
+  "version": "v0.26.0-3",
+  "spec_version": "0.3.1"
 }
