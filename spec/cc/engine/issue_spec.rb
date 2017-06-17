@@ -24,13 +24,13 @@ RSpec.describe CC::Engine::Issue do
     subject { offense.severity }
 
     context "when it is a warning" do
-      it { is_expected.to eq("normal") }
+      it { is_expected.to eq("info") }
     end
 
     context "when it is an error" do
       let(:severity) { ::HamlLint::Severity.new(:error) }
 
-      it { is_expected.to eq("critical") }
+      it { is_expected.to eq("minor") }
     end
   end
 
