@@ -21,6 +21,7 @@ module CC
         "IdNames" => "Style",
         "ImplicitDiv" => "Style",
         "Indentation" => "Style",
+        "InlineStyles" => "Style",
         "InstanceVariables" => "Style",
         "LeadingCommentSpace" => "Style",
         "LineLength" => "Style",
@@ -37,6 +38,7 @@ module CC
         "TrailingWhitespace" => "Style",
         "UnnecessaryInterpolation" => "Clarity",
         "UnnecessaryStringOutput" => "Clarity",
+        "ViewLength" => "Complexity",
       }.freeze
 
       # Instantiates a set of categories for a linter
