@@ -40,9 +40,7 @@ Since this isn't a publicly released engine yet, you will have to build the engi
 
 If the container fails to build, [file an issue][open-issue].
 
-You should now be able to use the engine through the Code Climate CLI as
-a development-level engine. To use it on your project, first navigate to your
-project's directory. Then use the following command:
+You should now be able to use the engine through the Code Climate CLI as a development-level engine. To use it on your project, first navigate to your project's directory. Then use the following command:
 
     $ codeclimate analyze -e haml-lint --dev
 
@@ -60,7 +58,7 @@ To tweak the linters that Haml-Lint will run, follow this pattern in the configu
 
 ```yaml
 engines:
-  haml_lint:
+  haml-lint:
     enabled: true
     config:
       file: my_custom_haml_lint.yml
@@ -76,7 +74,7 @@ exclude_paths:
   - ignored_directory/
 ```
 
-Most of the configuration lives under the `engines.haml_lint` key. The options are as follows:
+Most of the configuration lives under the `engines.haml-lint` key. The options are as follows:
 
 * `config.file` - The Haml-Lint configuration file you want to use as a base.
 * `checks.<LINTER_NAME>` - Configuration for the linter given by `<LINTER_NAME>`. You can pass any of the configuration options for the linter in the base Haml-Lint format. See [the Haml-Lint documentation] for more information.
@@ -87,13 +85,7 @@ Most of the configuration lives under the `engines.haml_lint` key. The options a
 
 ## Versioning
 
-This engine is versioned based on the versioning scheme of Haml-Lint. It uses
-the version of the Haml-Lint gem that is installed as the base version and then
-adds a build number. For example, the first time the engine is built and
-released for the `0.23.1` version of HamlLint, the engine's version is
-`0.23.1-1`. If there are any bugs that are fixed in the engine without updating
-the Haml-Lint version, the build number will be incremented (e.g. to
-`0.23.1-2`).
+This engine is versioned based on the versioning scheme of Haml-Lint. It uses the version of the Haml-Lint gem that is installed as the base version and then adds a build number. For example, the first time the engine is built and released for the `0.23.1` version of HamlLint, the engine's version is `0.23.1-1`. If there are any bugs that are fixed in the engine without updating the Haml-Lint version, the build number will be incremented (e.g. to `0.23.1-2`).
 
 ## License
 
