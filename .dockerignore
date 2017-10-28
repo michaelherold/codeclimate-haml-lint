@@ -12,7 +12,6 @@ bin/console
 bin/setup
 coverage/
 doc/
-/examples/
 tmp/
 Guardfile
 Makefile
