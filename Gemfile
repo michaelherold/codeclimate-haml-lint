@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+ruby '2.4.2'
+
 gem 'dry-equalizer', require: false
 gem 'haml_lint', '0.27.0'
 gem 'parser', '~> 2.3.3.1', require: false
