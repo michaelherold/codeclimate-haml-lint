@@ -195,7 +195,7 @@ module CC
       #   @see Hash#fetch
       #   @api private
       #   @return [Object]
-      alias_method :attribute_with_default, :fetch
+      alias attribute_with_default fetch
 
       # The configuration passed in by Code Climate
       #

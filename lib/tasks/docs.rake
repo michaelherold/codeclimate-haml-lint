@@ -61,7 +61,7 @@ module ExtractDocumentation
       elsif in_documentation_block
         block[:body] << line
       else
-        fail "uh oh!"
+        raise "uh oh!"
       end
     end
 
