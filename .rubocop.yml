@@ -25,7 +25,7 @@ Layout/SpaceInsideHashLiteralBraces:
     - space
     - no_space
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
   Enabled: false
 
@@ -68,7 +68,7 @@ Style/EmptyLiteral:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#literal-array-hash
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
   Description: Use snake_case for source file names.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#snake-case-files
   Enabled: true
@@ -133,7 +133,7 @@ Style/PerlBackrefs:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-perl-regexp-last-matchers
   Enabled: false
 
-Style/PredicateName:
+Naming/PredicateName:
   Description: Check the names of predicate methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark
   Enabled: true
@@ -245,10 +245,6 @@ Lint/EachWithObjectArgument:
 Lint/HandleExceptions:
   Description: Do not suppress exception.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions
-  Enabled: false
-
-Lint/LiteralInCondition:
-  Description: Checks of literals used in conditions.
   Enabled: false
 
 Lint/LiteralInInterpolation:
