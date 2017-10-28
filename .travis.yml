@@ -1,3 +1,6 @@
+branches:
+  - master
+  - /^v\d+\.\d+(?:\.\d+)?(?:-\S*)?$/
 cache: bundler
 language: ruby
 rvm:
