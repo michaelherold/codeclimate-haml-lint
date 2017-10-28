@@ -1,4 +1,4 @@
-require "digest/md5"
+require 'digest/md5'
 
 module CC
   module Engine
@@ -14,11 +14,11 @@ module CC
       #
       # @api public
       # @return [Hash]
-      OVERRIDABLE_LINTERS = %w(
+      OVERRIDABLE_LINTERS = %w[
         LineLength
         MultilineScript
         RuboCop
-      ).freeze
+      ].freeze
 
       # Instantiates a new fingerprint
       #
@@ -56,13 +56,13 @@ module CC
       # @api public
       # @return [String]
       def to_s
-        unless empty?
-          md5 = Digest::MD5.new
-          md5 << path
-          md5 << linter
-          md5 << stripped_message
-          md5.hexdigest
-        end
+        return if empty?
+
+        md5 = Digest::MD5.new
+        md5 << path
+        md5 << linter
+        md5 << stripped_message
+        md5.hexdigest
       end
 
       private
@@ -90,7 +90,7 @@ module CC
       # @api private
       # @return [String]
       def stripped_message
-        message.gsub(LINE_COUNT_STRIPPER, "").strip
+        message.gsub(LINE_COUNT_STRIPPER, '').strip
       end
     end
   end

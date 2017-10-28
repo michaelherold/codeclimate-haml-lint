@@ -1,4 +1,4 @@
-require "delegate"
+require 'delegate'
 
 module CC
   module Engine
@@ -9,8 +9,8 @@ module CC
       # @api private
       # @return [Hash]
       HAML_LINT_TO_CODE_CLIMATE = {
-        error: "minor",
-        warning: "info",
+        error: 'minor',
+        warning: 'info'
       }.freeze
 
       # Converts the HamlLint severity ontology into the Code Climate one
@@ -22,7 +22,7 @@ module CC
       # @param [String] severity the severity of the issue in HamlLint ontology
       # @return [String]
       def self.from_haml_lint(severity)
-        new(HAML_LINT_TO_CODE_CLIMATE[severity.name] || "info")
+        new(HAML_LINT_TO_CODE_CLIMATE[severity.name] || 'info')
       end
     end
   end

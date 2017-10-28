@@ -1,4 +1,4 @@
-require "dry-equalizer"
+require 'dry-equalizer'
 
 module CC
   module Engine
@@ -8,49 +8,49 @@ module CC
 
       # Maps the linters to their categories
       CATEGORIES = {
-        "AlignmentTabs" => "Style",
-        "AltText" => "Compatibility",
-        "ClassAttributeWithStaticValue" => "Style",
-        "ClassesBeforeIds" => "Style",
-        "ConsecutiveComments" => "Complexity",
-        "ConsecutiveSilentScripts" => "Complexity",
-        "EmptyObjectReference" => "Clarity",
-        "EmptyScript" => "Clarity",
-        "FinalNewline" => "Style",
-        "HtmlAttributes" => "Complexity",
-        "IdNames" => "Style",
-        "ImplicitDiv" => "Style",
-        "Indentation" => "Style",
-        "InlineStyles" => "Style",
-        "InstanceVariables" => "Style",
-        "LeadingCommentSpace" => "Style",
-        "LineLength" => "Style",
-        "MultilinePipe" => "Complexity",
-        "MultilineScript" => "Complexity",
-        "ObjectReferenceAttributes" => "Clarity",
-        "RepeatedId" => "Bug Risk",
-        "RuboCop" => "Style",
-        "RubyComments" => "Bug Risk",
-        "SpaceBeforeScript" => "Style",
-        "SpaceInsideHashAttributes" => "Style",
-        "Syntax" => "Bug Risk",
-        "TagName" => "Compatibility",
-        "TrailingWhitespace" => "Style",
-        "UnnecessaryInterpolation" => "Clarity",
-        "UnnecessaryStringOutput" => "Clarity",
-        "ViewLength" => "Complexity",
+        'AlignmentTabs' => 'Style',
+        'AltText' => 'Compatibility',
+        'ClassAttributeWithStaticValue' => 'Style',
+        'ClassesBeforeIds' => 'Style',
+        'ConsecutiveComments' => 'Complexity',
+        'ConsecutiveSilentScripts' => 'Complexity',
+        'EmptyObjectReference' => 'Clarity',
+        'EmptyScript' => 'Clarity',
+        'FinalNewline' => 'Style',
+        'HtmlAttributes' => 'Complexity',
+        'IdNames' => 'Style',
+        'ImplicitDiv' => 'Style',
+        'Indentation' => 'Style',
+        'InlineStyles' => 'Style',
+        'InstanceVariables' => 'Style',
+        'LeadingCommentSpace' => 'Style',
+        'LineLength' => 'Style',
+        'MultilinePipe' => 'Complexity',
+        'MultilineScript' => 'Complexity',
+        'ObjectReferenceAttributes' => 'Clarity',
+        'RepeatedId' => 'Bug Risk',
+        'RuboCop' => 'Style',
+        'RubyComments' => 'Bug Risk',
+        'SpaceBeforeScript' => 'Style',
+        'SpaceInsideHashAttributes' => 'Style',
+        'Syntax' => 'Bug Risk',
+        'TagName' => 'Compatibility',
+        'TrailingWhitespace' => 'Style',
+        'UnnecessaryInterpolation' => 'Clarity',
+        'UnnecessaryStringOutput' => 'Clarity',
+        'ViewLength' => 'Complexity'
       }.freeze
 
       # Lists the possible categories
       POSSIBLE = [
-        "Bug Risk",
-        "Clarity",
-        "Compatibility",
-        "Complexity",
-        "Duplication",
-        "Performance",
-        "Security",
-        "Style",
+        'Bug Risk',
+        'Clarity',
+        'Compatibility',
+        'Complexity',
+        'Duplication',
+        'Performance',
+        'Security',
+        'Style'
       ].freeze
 
       # Instantiates a set of categories for a linter
@@ -92,9 +92,9 @@ module CC
       # @api public
       # @return [String] a JSON document of the compatibilities
       def to_json(*args)
-        if category
-          [category].to_json(*args)
-        end
+        return unless category
+
+        [category].to_json(*args)
       end
 
       private
@@ -104,7 +104,7 @@ module CC
       # @api private
       # @return [String]
       def category
-        CATEGORIES.fetch(linter, "Style")
+        CATEGORIES.fetch(linter, 'Style')
       end
     end
   end

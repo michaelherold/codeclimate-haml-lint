@@ -1,5 +1,5 @@
-require "forwardable"
-require "haml_lint/configuration"
+require 'forwardable'
+require 'haml_lint/configuration'
 
 module CC
   module Engine
@@ -15,7 +15,7 @@ module CC
       # @api public
       # @param [String] filename the absolute path to the configuration file
       # @return [CC::Engine::Configuration]
-      def self.from_file(filename = "/config.json")
+      def self.from_file(filename = '/config.json')
         if File.exist?(filename)
           new(JSON.parse(File.read(filename)))
         else
@@ -64,7 +64,7 @@ module CC
       # @api public
       # @return [Hash]
       def checks
-        attribute_with_default("checks", {})
+        attribute_with_default('checks', {})
       end
 
       # The name of the HamlLint configuration file to use
@@ -86,7 +86,7 @@ module CC
       # @api public
       # @return [String, NilClass]
       def config
-        attribute_with_default("config", nil)
+        attribute_with_default('config', nil)
       end
 
       # Checks whether the engine is configured or not
@@ -108,7 +108,7 @@ module CC
       # @api public
       # @return [Boolean]
       def enabled?
-        attribute_with_default("enabled", true)
+        attribute_with_default('enabled', true)
       end
 
       # The paths to exclude from analysis
@@ -130,7 +130,7 @@ module CC
       # @api public
       # @return [Array<String>]
       def exclude_paths
-        attribute_with_default("exclude_paths", [])
+        attribute_with_default('exclude_paths', [])
       end
 
       # The paths to include in analysis
@@ -152,7 +152,7 @@ module CC
       # @api public
       # @return [Array<String>]
       def include_paths
-        attribute_with_default("include_paths", %w(./))
+        attribute_with_default('include_paths', %w[./])
       end
 
       # Converts the engine configuration to HamlLint configuration
@@ -175,9 +175,9 @@ module CC
       # @return [HamlLint::Configuration]
       def to_linter_config
         ::HamlLint::Configuration.new(
-          {"exclude" => exclude_paths, "linters" => {}}.tap do |config|
+          { 'exclude' => exclude_paths, 'linters' => {} }.tap do |config|
             checks.each do |linter, attrs|
-              config["linters"][linter.sub(%r{^HamlLint/}, "")] = attrs
+              config['linters'][linter.sub(%r{^HamlLint/}, '')] = attrs
             end
           end
         )

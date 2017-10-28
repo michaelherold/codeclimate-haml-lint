@@ -1,10 +1,10 @@
-require "dry-equalizer"
-require "cc/engine/categories"
-require "cc/engine/content"
-require "cc/engine/fingerprint"
-require "cc/engine/location"
-require "cc/engine/remediation_points"
-require "cc/engine/severity"
+require 'dry-equalizer'
+require 'cc/engine/categories'
+require 'cc/engine/content'
+require 'cc/engine/fingerprint'
+require 'cc/engine/location'
+require 'cc/engine/remediation_points'
+require 'cc/engine/severity'
 
 module CC
   module Engine
@@ -32,7 +32,7 @@ module CC
       # @param [String] root the root path of the analysis
       # @param [String] severity the severity of the issue in HamlLint terminology
       # rubocop:disable Metrics/ParameterLists
-      def initialize(linter_name:, location:, message:, path:, root: "", severity:)
+      def initialize(linter_name:, location:, message:, path:, root: '', severity:)
         @linter = linter_name
         @description = message
         @location = Location.from_haml_lint(location: location, path: path, root: root)
@@ -213,7 +213,7 @@ module CC
       # @return [Hash]
       def to_h
         extract_fields(:type, :check_name, :description, :location, :severity).tap do |hash|
-          %i(categories content fingerprint points).each do |field|
+          %i[categories content fingerprint points].each do |field|
             hash[field] = __send__(field) unless __send__(field).empty?
           end
         end
@@ -271,7 +271,7 @@ module CC
       # @api public
       # @return [String]
       def type
-        "issue"
+        'issue'
       end
 
       private

@@ -8,7 +8,7 @@ module FileSystemHelper
   # @param [String] directory the subdirectory within support/examples
   # @return [String] the full path to the directory
   def examples_path(directory)
-    File.expand_path(File.join(__FILE__, "..", "..", "examples", directory))
+    File.expand_path(File.join(__FILE__, '..', '..', 'examples', directory))
   end
 
   # Creates a path to the given example file within the current directory.

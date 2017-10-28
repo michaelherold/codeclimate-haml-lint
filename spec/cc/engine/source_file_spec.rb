@@ -1,12 +1,12 @@
-require "stringio"
-require "cc/engine/source_file"
+require 'stringio'
+require 'cc/engine/source_file'
 
 RSpec.describe CC::Engine::SourceFile do
   include FileSystemHelper
 
   let(:io) { StringIO.new }
   let(:linter_config) { HamlLint::ConfigurationLoader.default_configuration }
-  let(:root) { examples_path("source_file") }
+  let(:root) { examples_path('source_file') }
 
   around(:each) do |example|
     in_directory(root) do
@@ -23,20 +23,20 @@ RSpec.describe CC::Engine::SourceFile do
     )
   end
 
-  describe "#path" do
-    let(:path) { example_file("a.haml") }
+  describe '#path' do
+    let(:path) { example_file('a.haml') }
 
     subject { source_file.path }
 
-    it { is_expected.to eq("a.haml") }
+    it { is_expected.to eq('a.haml') }
   end
 
-  describe "#process" do
-    let(:path) { example_file("b.haml") }
+  describe '#process' do
+    let(:path) { example_file('b.haml') }
 
     subject { source_file.process }
 
-    it "writes to the IO object" do
+    it 'writes to the IO object' do
       subject
 
       output = io.string

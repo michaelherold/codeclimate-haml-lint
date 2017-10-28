@@ -1,7 +1,7 @@
-require "haml_lint/reporter"
-require "haml_lint/reporter/json_reporter"
-require "cc/engine/issue"
-require "cc/engine/report_adapter"
+require 'haml_lint/reporter'
+require 'haml_lint/reporter/json_reporter'
+require 'cc/engine/issue'
+require 'cc/engine/report_adapter'
 
 module CC
   module Engine
@@ -44,7 +44,7 @@ module CC
       # @return [String]
       def path
         real_path = Pathname.new(root).realpath.to_s
-        full_path.sub(%r{^#{real_path}/}, "")
+        full_path.sub(%r{^#{real_path}/}, '')
       end
 
       # Processes the file with HamlLint and outputs to the configured IO
@@ -112,8 +112,8 @@ module CC
           config: linter_config,
           excluded_linters: [],
           files: [full_path],
-          included_linters: linter_config["linters"].keys,
-          reporter: reporter,
+          included_linters: linter_config['linters'].keys,
+          reporter: reporter
         }
       end
 

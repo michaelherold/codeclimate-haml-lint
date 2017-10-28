@@ -52,7 +52,7 @@ module CC
       # @api public
       # @return [Hash]
       def to_h
-        {body: body}
+        { body: body }
       end
 
       # Converts the contents into a JSON document
@@ -75,7 +75,7 @@ module CC
       def content_path
         @content_path ||=
           File.expand_path(
-            File.join(__FILE__, "..", "..", "..", "..", "config", "contents", "#{linter}.md")
+            File.join(__FILE__, '..', '..', '..', '..', 'config', 'contents', "#{linter}.md")
           )
       end
     end
