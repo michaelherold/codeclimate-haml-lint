@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CC
   module Engine
     # Pulls data from our database of suggestions for a linter

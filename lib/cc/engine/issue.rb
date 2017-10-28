@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry-equalizer'
 require 'cc/engine/categories'
 require 'cc/engine/content'

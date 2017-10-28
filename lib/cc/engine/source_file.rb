@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'haml_lint/reporter'
 require 'haml_lint/reporter/json_reporter'
 require 'cc/engine/issue'

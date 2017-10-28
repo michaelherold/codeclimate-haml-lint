@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'haml_lint/runner'
 require 'cc/engine/configuration'
@@ -13,7 +15,7 @@ module CC
       #
       # @api private
       # @return [String]
-      HAML_EXTENSION = '.haml'.freeze
+      HAML_EXTENSION = '.haml'
 
       # Instantiates a new FileList
       #
