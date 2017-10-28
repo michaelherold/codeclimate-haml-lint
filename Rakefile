@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rake.add_rakelib 'lib/tasks'
 
 def with_optional_dependency

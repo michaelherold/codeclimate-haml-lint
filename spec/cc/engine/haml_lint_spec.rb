@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cc/engine/haml_lint'
 
 RSpec.describe CC::Engine::HamlLint do

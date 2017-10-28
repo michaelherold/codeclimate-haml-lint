@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cc/engine/location'
 
 RSpec.describe CC::Engine::Location do

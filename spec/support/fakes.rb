@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Fakes
   # Generates a list of two fake HamlLint::Lint objects to test againsst
   #

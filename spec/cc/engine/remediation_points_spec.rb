@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cc/engine/remediation_points'
 
 RSpec.describe CC::Engine::RemediationPoints do
