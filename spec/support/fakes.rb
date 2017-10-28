@@ -13,13 +13,19 @@ module Fakes
     %w(some-filename.haml other-filename.haml).
       each_with_index.
       map do |filename, index|
-        HamlLint::Lint.new(
-          double(name: "SomeLinter"),
-          filename,
-          lines[index],
-          descriptions[index],
-          severities[index]
-        )
+        fake_lint(filename, lines[index], descriptions[index], severities[index])
       end
+  end
+
+  private
+
+  def fake_lint(filename, line, description, severity)
+    HamlLint::Lint.new(
+      double(name: "SomeLinter"),
+      filename,
+      line,
+      description,
+      severity
+    )
   end
 end

@@ -5,8 +5,8 @@ AllCops:
     - "Rakefile"
     - "*.gemspec"
   Exclude:
+    - "tmp/**/*"
     - "vendor/**/*"
-    - "db/schema.rb"
   TargetRubyVersion: 2.1
 
 Layout/DotPosition:
@@ -254,8 +254,11 @@ Lint/LiteralInInterpolation:
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
-  Enabled: false
   Max: 15
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*_spec.rb"
 
 Metrics/BlockLength:
   Description: Avoid long blocks with many lines.
@@ -264,43 +267,15 @@ Metrics/BlockLength:
     - "**/*.rake"
     - "spec/**/*_spec.rb"
 
-Metrics/ClassLength:
-  Description: Avoid classes longer than 100 lines of code.
-  Enabled: false
-  CountComments: false
-  Max: 100
-
-Metrics/ModuleLength:
-  CountComments: false
-  Max: 100
-  Description: Avoid modules longer than 100 lines of code.
-  Enabled: false
-
-Metrics/CyclomaticComplexity:
-  Description: A complexity metric that is strongly correlated to the number of test
-    cases needed to validate a method.
-  Enabled: false
-  Max: 6
-
 Metrics/LineLength:
   Max: 100
 
 Metrics/MethodLength:
   Description: Avoid methods longer than 10 lines of code.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
-  Enabled: false
   CountComments: false
   Max: 10
-
-Metrics/ParameterLists:
-  Description: Avoid parameter lists longer than three or four parameters.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#too-many-params
-  Enabled: false
-  Max: 5
-  CountKeywordArgs: true
-
-Metrics/PerceivedComplexity:
-  Description: A complexity metric geared towards measuring complexity for a human
-    reader.
-  Enabled: false
-  Max: 7
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*_spec.rb"

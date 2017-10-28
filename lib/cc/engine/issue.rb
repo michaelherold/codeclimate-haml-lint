@@ -31,6 +31,7 @@ module CC
       # @param [String] path the path to the file where the issue was detected
       # @param [String] root the root path of the analysis
       # @param [String] severity the severity of the issue in HamlLint terminology
+      # rubocop:disable Metrics/ParameterLists
       def initialize(linter_name:, location:, message:, path:, root: "", severity:)
         @linter = linter_name
         @description = message
@@ -211,17 +212,10 @@ module CC
       # @api public
       # @return [Hash]
       def to_h
-        {
-          type: type,
-          check_name: check_name,
-          description: description,
-          location: location,
-          severity: severity,
-        }.tap do |hash|
-          hash[:categories] = categories unless categories.empty?
-          hash[:content] = content unless content.empty?
-          hash[:fingerprint] = fingerprint unless fingerprint.empty?
-          hash[:remediation_points] = points unless points.empty?
+        extract_fields(:type, :check_name, :description, :location, :severity).tap do |hash|
+          %i(categories content fingerprint points).each do |field|
+            hash[field] = __send__(field) unless __send__(field).empty?
+          end
         end
       end
 
@@ -287,6 +281,12 @@ module CC
       # @api private
       # @return [String]
       attr_reader :linter
+
+      def extract_fields(*fields)
+        {}.tap do |result|
+          fields.each { |field| result[field] = __send__(field) }
+        end
+      end
     end
   end
 end
