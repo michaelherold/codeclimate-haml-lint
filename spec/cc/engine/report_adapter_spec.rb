@@ -4,7 +4,7 @@ require "cc/engine/report_adapter"
 RSpec.describe CC::Engine::ReportAdapter do
   include Fakes
 
-  let(:report) { HamlLint::Report.new(fake_lints, [], reporter: reporter) }
+  let(:report) { HamlLint::Report.new(lints: fake_lints, files: [], reporter: reporter) }
   let(:reporter) do
     HamlLint::Reporter::HashReporter.new(
       HamlLint::Logger.new(StringIO.new)
