@@ -1,6 +1,6 @@
-require "forwardable"
-require "haml_lint/runner"
-require "cc/engine/configuration"
+require 'forwardable'
+require 'haml_lint/runner'
+require 'cc/engine/configuration'
 
 module CC
   module Engine
@@ -13,7 +13,7 @@ module CC
       #
       # @api private
       # @return [String]
-      HAML_EXTENSION = ".haml".freeze
+      HAML_EXTENSION = '.haml'.freeze
 
       # Instantiates a new FileList
       #
@@ -91,9 +91,9 @@ module CC
       # @api private
       # @return [Array<String>]
       def filtered_files
-        absolute_include_paths.
-          flat_map { |path| haml_files_from_path(path) }.
-          reject { |path| exclude_paths.include?(path) }
+        absolute_include_paths
+          .flat_map { |path| haml_files_from_path(path) }
+          .reject { |path| exclude_paths.include?(path) }
       end
 
       # Extracts Haml files from a path
@@ -102,9 +102,9 @@ module CC
       # @return [Array<String>]
       def haml_files_from_path(path)
         if Dir.exist?(path) || File.exist?(path)
-          runner.
-            send(:extract_applicable_files, linter_config, files: [path]).
-            select { |file| file.end_with?(HAML_EXTENSION) }
+          runner
+            .send(:extract_applicable_files, linter_config, files: [path])
+            .select { |file| file.end_with?(HAML_EXTENSION) }
         else
           []
         end

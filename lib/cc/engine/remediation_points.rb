@@ -1,4 +1,4 @@
-require "dry-equalizer"
+require 'dry-equalizer'
 
 module CC
   module Engine
@@ -11,37 +11,37 @@ module CC
 
       # Maps the linters to their remediation points
       POINTS = {
-        "AlignmentTabs" => DEFAULT_POINTS,
-        "AltText" => DEFAULT_POINTS * 2,
-        "ClassAttributeWithStaticValue" => DEFAULT_POINTS,
-        "ClassesBeforeIds" => DEFAULT_POINTS,
-        "ConsecutiveComments" => DEFAULT_POINTS,
-        "ConsecutiveSilentScripts" => DEFAULT_POINTS,
-        "EmptyObjectReference" => DEFAULT_POINTS,
-        "EmptyScript" => DEFAULT_POINTS,
-        "FinalNewline" => DEFAULT_POINTS,
-        "HtmlAttributes" => DEFAULT_POINTS * 2,
-        "IdNames" => DEFAULT_POINTS * 5,
-        "ImplicitDiv" => DEFAULT_POINTS,
-        "Indentation" => DEFAULT_POINTS,
-        "InlineStyles" => DEFAULT_POINTS * 2,
-        "InstanceVariables" => DEFAULT_POINTS * 3,
-        "LeadingCommentSpace" => DEFAULT_POINTS,
-        "LineLength" => DEFAULT_POINTS,
-        "MultilinePipe" => DEFAULT_POINTS * 2,
-        "MultilineScript" => DEFAULT_POINTS,
-        "ObjectReferenceAttributes" => DEFAULT_POINTS * 2,
-        "RepeatedId" => DEFAULT_POINTS * 2,
-        "RuboCop" => DEFAULT_POINTS * 5,
-        "RubyComments" => DEFAULT_POINTS,
-        "SpaceBeforeScript" => DEFAULT_POINTS,
-        "SpaceInsideHashAttributes" => DEFAULT_POINTS,
-        "Syntax" => DEFAULT_POINTS,
-        "TagName" => DEFAULT_POINTS,
-        "TrailingWhitespace" => DEFAULT_POINTS,
-        "UnnecessaryInterpolation" => DEFAULT_POINTS,
-        "UnnecessaryStringOutput" => DEFAULT_POINTS,
-        "ViewLength" => DEFAULT_POINTS * 4,
+        'AlignmentTabs' => DEFAULT_POINTS,
+        'AltText' => DEFAULT_POINTS * 2,
+        'ClassAttributeWithStaticValue' => DEFAULT_POINTS,
+        'ClassesBeforeIds' => DEFAULT_POINTS,
+        'ConsecutiveComments' => DEFAULT_POINTS,
+        'ConsecutiveSilentScripts' => DEFAULT_POINTS,
+        'EmptyObjectReference' => DEFAULT_POINTS,
+        'EmptyScript' => DEFAULT_POINTS,
+        'FinalNewline' => DEFAULT_POINTS,
+        'HtmlAttributes' => DEFAULT_POINTS * 2,
+        'IdNames' => DEFAULT_POINTS * 5,
+        'ImplicitDiv' => DEFAULT_POINTS,
+        'Indentation' => DEFAULT_POINTS,
+        'InlineStyles' => DEFAULT_POINTS * 2,
+        'InstanceVariables' => DEFAULT_POINTS * 3,
+        'LeadingCommentSpace' => DEFAULT_POINTS,
+        'LineLength' => DEFAULT_POINTS,
+        'MultilinePipe' => DEFAULT_POINTS * 2,
+        'MultilineScript' => DEFAULT_POINTS,
+        'ObjectReferenceAttributes' => DEFAULT_POINTS * 2,
+        'RepeatedId' => DEFAULT_POINTS * 2,
+        'RuboCop' => DEFAULT_POINTS * 5,
+        'RubyComments' => DEFAULT_POINTS,
+        'SpaceBeforeScript' => DEFAULT_POINTS,
+        'SpaceInsideHashAttributes' => DEFAULT_POINTS,
+        'Syntax' => DEFAULT_POINTS,
+        'TagName' => DEFAULT_POINTS,
+        'TrailingWhitespace' => DEFAULT_POINTS,
+        'UnnecessaryInterpolation' => DEFAULT_POINTS,
+        'UnnecessaryStringOutput' => DEFAULT_POINTS,
+        'ViewLength' => DEFAULT_POINTS * 4
       }.freeze
 
       # Instantiates a remediate points value for a linter
@@ -88,9 +88,9 @@ module CC
       # @api public
       # @return [String] a JSON document of the remediation points
       def to_json(*args)
-        if points
-          points.to_json(*args)
-        end
+        return unless points
+
+        points.to_json(*args)
       end
 
       private

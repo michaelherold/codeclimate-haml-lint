@@ -1,6 +1,7 @@
-require "fileutils"
-require "haml_lint/version"
+require 'fileutils'
+require 'haml_lint/version'
 
+# Encapsulates the logic for extracting documentation from haml-lint.
 module ExtractDocumentation
   # Removes the cloned repository from the disk
   #
@@ -15,7 +16,7 @@ module ExtractDocumentation
   # @api public
   # @return [void]
   def self.clone_and_check_out_source
-    unless Dir.exist?("haml_lint-git")
+    unless Dir.exist?('haml_lint-git')
       `git clone https://github.com/brigade/haml-lint.git haml_lint-git`
     end
     `cd haml_lint-git && git checkout tags/v#{HamlLint::VERSION}`
@@ -26,11 +27,11 @@ module ExtractDocumentation
   # @api public
   # @return [Array<String>]
   def self.extract
-    readme = File.read("./haml_lint-git/lib/haml_lint/linter/README.md").split("\n")
+    readme = File.read('./haml_lint-git/lib/haml_lint/linter/README.md').split("\n")
     start_keeping = false
 
     readme.select do |line|
-      next unless start_keeping || line.start_with?("##")
+      next unless start_keeping || line.start_with?('##')
       start_keeping = true
     end
   end
@@ -40,19 +41,19 @@ module ExtractDocumentation
   # @api public
   # @return [Array<Hash>]
   def self.split(documentation)
-    documentation_blocks = []
+    doc_blocks = []
     in_documentation_block = false
-    block = {filename: "", body: []}
+    block = { filename: '', body: [] }
 
     documentation.each do |line|
-      if line.start_with?("## ")
-        linter = line.sub(/^## /, "")
-        filename = linter + ".md"
+      if line.start_with?('## ')
+        linter = line.sub(/^## /, '')
+        filename = linter + '.md'
         line = "## HamlLint/#{linter}"
 
         if in_documentation_block
-          documentation_blocks << {filename: block[:filename], body: block[:body].join("\n").rstrip}
-          block = {filename: filename, body: [line]}
+          doc_blocks << { filename: block[:filename], body: block[:body].join("\n").rstrip }
+          block = { filename: filename, body: [line] }
         else
           block[:filename] = filename
           block[:body] << line
@@ -61,11 +62,11 @@ module ExtractDocumentation
       elsif in_documentation_block
         block[:body] << line
       else
-        raise "uh oh!"
+        raise 'uh oh!'
       end
     end
 
-    documentation_blocks
+    doc_blocks
   end
 
   # Writes the documentation files to the config/contents directory
@@ -73,7 +74,7 @@ module ExtractDocumentation
   # @api public
   # @return [void]
   def self.write(doc_blocks)
-    path = File.expand_path(File.join(__FILE__, "..", "..", "..", "config", "contents"))
+    path = File.expand_path(File.join(__FILE__, '..', '..', '..', 'config', 'contents'))
     FileUtils.mkdir_p(path)
     doc_blocks.each do |block|
       filename = File.join(path, block[:filename])
@@ -83,7 +84,7 @@ module ExtractDocumentation
 end
 
 namespace :docs do
-  desc "Scrapes documentation from the haml_lint gem"
+  desc 'Scrapes documentation from the haml_lint gem'
   task :scrape do
     ExtractDocumentation.clone_and_check_out_source
 

@@ -1,4 +1,4 @@
-require "dry-equalizer"
+require 'dry-equalizer'
 
 module CC
   module Engine
@@ -22,7 +22,7 @@ module CC
       # @return [CC::Engine::Location]
       def self.from_haml_lint(location:, path:, root:)
         root = Pathname.new(root).realpath.to_s
-        new(line: location[:line], path: path.sub(%r{^#{root}/}, ""))
+        new(line: location[:line], path: path.sub(%r{^#{root}/}, ''))
       end
 
       # Instantiates a new location

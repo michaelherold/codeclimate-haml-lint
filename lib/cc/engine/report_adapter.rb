@@ -1,8 +1,8 @@
-require "forwardable"
-require "json"
-require "stringio"
-require "haml_lint/logger"
-require "cc/engine/issue"
+require 'forwardable'
+require 'json'
+require 'stringio'
+require 'haml_lint/logger'
+require 'cc/engine/issue'
 
 module CC
   module Engine
@@ -74,9 +74,9 @@ module CC
       # @return [Array<CC::Engine::Issue>]
       def issues
         @issues ||=
-          output.
-          fetch(:files, []).
-          flat_map { |file| create_issues_from(file) }
+          output
+          .fetch(:files, [])
+          .flat_map { |file| create_issues_from(file) }
       end
 
       # Captures the output from the HamlLint reporter

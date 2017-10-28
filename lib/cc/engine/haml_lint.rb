@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require "json"
-require "haml_lint"
-require "haml_lint/configuration_loader"
-require "cc/engine/configuration"
-require "cc/engine/file_list"
-require "cc/engine/source_file"
+require 'json'
+require 'haml_lint'
+require 'haml_lint/configuration_loader'
+require 'cc/engine/configuration'
+require 'cc/engine/file_list'
+require 'cc/engine/source_file'
 
 # The Code Climate namespace by convention
 module CC

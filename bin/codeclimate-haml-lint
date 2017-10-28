@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift(File.expand_path(File.join(__FILE__, "..", "..", "lib")))
+$LOAD_PATH.unshift(File.expand_path(File.join(__FILE__, '..', '..', 'lib')))
 
-require "cc/engine/configuration"
-require "cc/engine/haml_lint"
+require 'cc/engine/configuration'
+require 'cc/engine/haml_lint'
 
-engine_config = CC::Engine::Configuration.from_file("/config.json")
+engine_config = CC::Engine::Configuration.from_file('/config.json')
 CC::Engine::HamlLint.new(root: Dir.pwd, engine_config: engine_config, io: STDOUT).run
