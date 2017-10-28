@@ -1,4 +1,4 @@
-FROM ruby:2.3-alpine
+FROM ruby:2.4.2-alpine
 
 LABEL maintainer "Michael J. Herold <michael@michaeljherold.com>"
 
