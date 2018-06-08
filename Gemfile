@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '2.5.1'
 
 gem 'dry-equalizer', require: false
-gem 'haml_lint', '0.27.0'
+gem 'haml_lint', '0.28.0'
 gem 'parser', '~> 2.5.1.0', require: false
 
 # RuboCop plugins
