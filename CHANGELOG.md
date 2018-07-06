@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.28.0-1](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.27.0-1)
+
+* [#10](https://github.com/michaelherold/codeclimate-haml-lint/pull/10): Updated to 0.28.0 of Haml-Lint - [@andyw8].
+* Updated the Ruby version to 2.5.1 - [@michaelherold].
+* Updated internally used gems to mitigate a security warning. This does not affect the security status of the engine at all - [@michaelherold].
+
 ## [0.27.0-1](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.27.0-1)
 
 * [#8](https://github.com/michaelherold/codeclimate-haml-lint/pull/8): Updated to 0.27.0 of Haml-Lint - [@michaelherold].
