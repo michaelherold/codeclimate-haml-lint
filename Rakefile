@@ -12,18 +12,6 @@ with_optional_dependency do
   Inch::Rake::Suggest.new(:inch)
 end
 
-task :mutant do
-  command = [
-    'bundle exec mutant',
-    '--include lib',
-    '--require cc/engine/haml_lint',
-    '--use rspec',
-    'CC::Engine*'
-  ].join(' ')
-
-  system command
-end
-
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 

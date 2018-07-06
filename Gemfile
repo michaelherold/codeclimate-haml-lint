@@ -17,7 +17,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'guard-yard'
-  gem 'mutant-rspec', '~> 0.8'
   gem 'pry', require: false
 end
 
