@@ -7,7 +7,7 @@ AllCops:
   Exclude:
     - "tmp/**/*"
     - "vendor/**/*"
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
 
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
