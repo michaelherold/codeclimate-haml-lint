@@ -1,6 +1,10 @@
 # Change Log
 
-## [0.28.0-1](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.27.0-1)
+## [0.28.0-2](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.28.0-2)
+
+* Updated internal Rubocop version to 0.58.2 for Ruby 2.5 support - [@michaelherold].
+
+## [0.28.0-1](https://github.com/michaelherold/codeclimate-haml-lint/tree/v0.28.0-1)
 
 * [#10](https://github.com/michaelherold/codeclimate-haml-lint/pull/10): Updated to 0.28.0 of Haml-Lint - [@andyw8].
 * Updated the Ruby version to 2.5.1 - [@michaelherold].
