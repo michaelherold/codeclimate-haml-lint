@@ -30,6 +30,6 @@ group :ci do
 end
 
 group :test do
-  gem 'rake', '< 11'
+  gem 'rake', '>= 12.3.3'
   gem 'rspec'
 end
