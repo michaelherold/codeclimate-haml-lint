@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+      - /^v\d+\.\d+(?:\.\d+)?(?:-\S*)?$/
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v3.0.0
+        with:
+          coverageCommand: bundle exec rake
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
