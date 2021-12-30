@@ -22,7 +22,6 @@ group :development do
 end
 
 group :ci do
-  gem 'codeclimate-test-reporter', require: false
   gem 'inch', require: false
   gem 'simplecov', require: false
   gem 'yard', '~> 0.9', require: false

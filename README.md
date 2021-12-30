@@ -1,12 +1,12 @@
 # Code Climate Haml-Lint Engine
 
-[![Build Status](https://travis-ci.org/michaelherold/codeclimate-haml-lint.svg)][travis]
+[![Build Status](https://github.com/michaelherold/codeclimate-haml-lint/workflows/CI/badge.svg)][actions]
 [![Code Climate](https://codeclimate.com/github/michaelherold/codeclimate-haml-lint/badges/gpa.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/michaelherold/codeclimate-haml-lint.svg?branch=master)][inch]
 
 [codeclimate]: https://codeclimate.com/github/michaelherold/codeclimate-haml-lint
 [inch]: http://inch-ci.org/github/michaelherold/codeclimate-haml-lint
-[travis]: https://travis-ci.org/michaelherold/codeclimate-haml-lint
+[actions]: https://github.com/michaelherold/codeclimate-haml-lint/actions
 
 Have you ever wanted to know exactly how good you are at writing consistent Haml? Well look no more! By using this Code Climate engine, you can harness the power of [Haml-Lint] to score your code.
 
