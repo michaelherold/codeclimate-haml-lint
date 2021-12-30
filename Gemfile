@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version')
+ruby '2.5.1'
 
 gem 'dry-equalizer', require: false
 gem 'haml_lint', '0.33.0'
@@ -21,12 +21,14 @@ group :development do
   gem 'pry', require: false
 end
 
-group :test do
-  gem 'codeclimate-test-reporter', require: false
+group :ci do
   gem 'inch', require: false
-  gem 'rake', '>= 12.3.3'
-  gem 'rspec'
   gem 'simplecov', require: false
   gem 'yard', '~> 0.9', require: false
   gem 'yardstick', require: false
+end
+
+group :test do
+  gem 'rake', '>= 12.3.3'
+  gem 'rspec'
 end
