@@ -115,7 +115,7 @@ GEM
     tilt (2.0.10)
     tins (1.16.3)
     unicode-display_width (1.4.0)
-    yard (0.9.20)
+    yard (0.9.35)
     yardstick (0.9.9)
       yard (~> 0.8, >= 0.8.7.2)
 
